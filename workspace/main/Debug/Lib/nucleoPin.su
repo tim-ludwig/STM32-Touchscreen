@@ -1,0 +1,3 @@
+nucleoPin.c:11:6:nucleoPortpinInit	32	static
+nucleoPin.c:15:6:nucleoPortpinSet	24	static
+nucleoPin.c:19:10:nucleoPortpinGet	16	static
