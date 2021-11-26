@@ -1,0 +1,23 @@
+LTDC.h:36:8:void cHwLTDC::Init(WORD, WORD)	24	static
+LTDC.h:84:14:uint32_t cHwLTDC::LayerConfig(uint32_t, uint32_t, uint8_t)	40	static
+DSI.h:41:8:void cHwDSI::Init(WORD, WORD, bool)	32	static
+DSI.h:180:13:uint32_t cHwDSI::startLTDC(WORD, WORD)	16	static
+DSI.h:251:8:void cHwDSI::DisplayRefresh()	16	static
+DisplayGraphic.h:187:18:virtual void cHwDisplayGraphic::refresh()	16	static
+DisplayGraphic.h:194:28:virtual cHwDisplayFont cHwDisplayGraphic::getDefaultFont()	16	static
+DisplayGraphic.h:203:18:virtual WORD cHwDisplayGraphic::getWidth()	16	static
+DisplayGraphic.h:212:18:virtual WORD cHwDisplayGraphic::getHeight()	16	static
+Disp_OTM8009A.h:108:5:cHwDisp_OTM8009A::cHwDisp_OTM8009A(cHwDSI&, cHwPort::Pin&, cHwDisp_OTM8009A::Orientation, cHwDisplayFont, BYTE)	32	static
+Disp_OTM8009A.cpp:36:6:void cHwDisp_OTM8009A::init()	432	static
+Disp_OTM8009A.cpp:135:1:cHwDisp_OTM8009Acmd::cHwDisp_OTM8009Acmd(cHwDSI&, cHwPort::Pin&, cHwDisp_OTM8009A::Orientation, cHwDisplayFont, BYTE)	48	static
+Disp_OTM8009A.cpp:157:6:virtual void cHwDisp_OTM8009Acmd::refresh()	16	static
+Disp_OTM8009A.cpp:162:6:virtual void cHwDisp_OTM8009Acmd::clear()	40	static
+Disp_OTM8009A.cpp:171:6:virtual void cHwDisp_OTM8009Acmd::setArea(WORD, WORD, WORD, WORD)	24	static
+Disp_OTM8009A.cpp:186:6:virtual void cHwDisp_OTM8009Acmd::setPixel(WORD, WORD, WORD)	48	static
+Disp_OTM8009A.cpp:197:6:virtual void cHwDisp_OTM8009Acmd::setPixel(WORD)	48	static
+Disp_OTM8009A.cpp:229:1:cHwDisp_OTM8009Aram::cHwDisp_OTM8009Aram(cHwDSI&, cHwPort::Pin&, cHwDisp_OTM8009A::Orientation, cHwDisplayFont, BYTE)	48	static
+Disp_OTM8009A.cpp:254:6:virtual void cHwDisp_OTM8009Aram::refresh()	16	static
+Disp_OTM8009A.cpp:260:6:virtual void cHwDisp_OTM8009Aram::clear()	24	static
+Disp_OTM8009A.cpp:269:6:virtual void cHwDisp_OTM8009Aram::setArea(WORD, WORD, WORD, WORD)	24	static
+Disp_OTM8009A.cpp:286:6:virtual void cHwDisp_OTM8009Aram::setPixel(WORD, WORD, WORD)	24	static
+Disp_OTM8009A.cpp:295:6:virtual void cHwDisp_OTM8009Aram::setPixel(WORD)	16	static

@@ -1,0 +1,5 @@
+"./GCC/RTOScontext.o"
+"./GCC/startup_stm32f769nihx.o"
+"./Src/Disp_OTM8009A.o"
+"./Src/lib.o"
+"./Src/main.o"

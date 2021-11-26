@@ -1,0 +1,13 @@
+LTDC.h:26:3:cHwLTDC::cHwLTDC(uint32_t)	16	static
+FMC.h:44:5:cHwFMC::cHwFMC(cHwFMC::FMCtype, bool)	24	static
+FMC.h:129:14:uint32_t cHwFMC::startAddr()	16	static
+FMC.h:139:10:void cHwFMC::SDRAM_Init()	24	static
+FMC.h:235:10:void cHwFMC::SendCommand(uint32_t, uint32_t, uint32_t)	32	static
+DSI.h:31:5:cHwDSI::cHwDSI(uint32_t)	16	static
+DSI.h:212:16:virtual void cHwDSI::writeShort(uint8_t, uint8_t)	16	static
+DSI.h:225:16:virtual void cHwDSI::writeLong(uint8_t*, uint32_t)	32	static
+I2Cmaster.h:69:9:cHwI2Cmaster::Device::Device(cHwI2Cmaster&, BYTE)	24	static
+main.cpp:18:5:int main()	32	static
+DisplayFont.h:118:5:cHwDisplayFontData<NUM_OF_CHAR, BYTE_PER_CHAR>::operator cHwDisplayFont() const [with short unsigned int NUM_OF_CHAR = 96; unsigned char BYTE_PER_CHAR = 12]	16	static
+main.cpp:41:1:void __static_initialization_and_destruction_0(int, int)	56	static
+main.cpp:41:1:cpp)	8	static
