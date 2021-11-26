@@ -161,3 +161,45 @@ std::ostream& operator<<(std::ostream& stream, const Game& game) {
 
     return stream;
 }
+
+static WORD min(WORD a, WORD b) {
+		return a < b ? a : b;
+}
+
+void Game::draw(cDevDisplayGraphic& lcd) const {
+	WORD sideLength = min(lcd.getWidth(), lcd.getHeight());
+
+	WORD cellSize = sideLength / 3;
+	WORD x = sideLength < lcd.getWidth() ? (lcd.getWidth() - sideLength) / 2 : 0;
+	WORD y = sideLength < lcd.getHeight() ? (lcd.getHeight() - sideLength) / 2 : 0;
+
+	lcd.drawRectangle(0, 0, lcd.getWidth(), lcd.getHeight(), Color::White);
+	for (int i = 0; i <= 3; i++) {
+		lcd.drawLine(x, y + i * cellSize, x + sideLength, y + i * cellSize, 1, Color::Black);
+		lcd.drawLine(x + i * cellSize, y, x + i * cellSize, y + sideLength, 1, Color::Black);
+	}
+
+	for(int row = 0; row < 3; row++) {
+		for(int col = 0; col < 3; col++) {
+			WORD l = x + col * cellSize;
+			WORD u = y + row * cellSize;
+			WORD r = l + cellSize;
+			WORD d = u + cellSize;
+
+			switch(board[col][row]) {
+			case 'x':
+				lcd.drawLine(l + 10, u + 10, r - 10, d - 10, 1, Color::Blue);
+				lcd.drawLine(r - 10, u + 10, l + 10, d - 10, 1, Color::Blue);
+				break;
+			case 'o':
+				lcd.drawCircle(l + cellSize / 2, u + cellSize / 2, cellSize / 2 - 10, Color::Blue);
+				lcd.drawCircle(l + cellSize / 2, u + cellSize / 2, cellSize / 2 - 12, Color::White);
+				break;
+			default:
+				break;
+			}
+		}
+	}
+
+	lcd.refresh();
+}

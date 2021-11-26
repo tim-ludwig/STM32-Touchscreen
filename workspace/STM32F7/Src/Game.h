@@ -4,6 +4,9 @@
 #include <iostream>
 #include <vector>
 
+#include "lib.h"
+#include "Color.h"
+
 class Move {
 public:
     int x;
@@ -33,6 +36,8 @@ public:
     bool undoMove();
     bool hasEnded() const;
     char winner() const;
+
+    void draw(cDevDisplayGraphic&) const;
 
     double eval();
     Move bestMove();
