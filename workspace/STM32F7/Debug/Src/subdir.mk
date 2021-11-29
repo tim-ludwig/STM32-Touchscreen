@@ -7,18 +7,21 @@
 CPP_SRCS += \
 C:/Users/TIm\ Ludwig/Documents/GitHub/STM32-Touchscreen/workspace/EmbSysLib/Src/Peripheral/Disp_OTM8009A.cpp \
 ../Src/Game.cpp \
+../Src/TouchScreen.cpp \
 C:/Users/TIm\ Ludwig/Documents/GitHub/STM32-Touchscreen/workspace/EmbSysLib/Src/lib.cpp \
 ../Src/main.cpp 
 
 OBJS += \
 ./Src/Disp_OTM8009A.o \
 ./Src/Game.o \
+./Src/TouchScreen.o \
 ./Src/lib.o \
 ./Src/main.o 
 
 CPP_DEPS += \
 ./Src/Disp_OTM8009A.d \
 ./Src/Game.d \
+./Src/TouchScreen.d \
 ./Src/lib.d \
 ./Src/main.d 
 
@@ -30,4 +33,11 @@ Src/%.o: ../Src/%.cpp Src/subdir.mk
 	arm-none-eabi-g++ "$<" -mcpu=cortex-m7 -std=gnu++14 -g3 -DSTM32 -DDISP_LCD -D_GCC -D_HSE_CLK=25000 -D_HSE_BYPASS_OFF -DSTM32F769xx -DSTM32F7 -DDEBUG -DSTM32F769NIHx -c -I../../EmbSysLib/Src/MCU/STM32F7xx/Sys/GCC -I../Src -I../../EmbSysLib/Src/MCU/STM32F7xx -I../../EmbSysLib/Src -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@"
 Src/lib.o: C:/Users/TIm\ Ludwig/Documents/GitHub/STM32-Touchscreen/workspace/EmbSysLib/Src/lib.cpp Src/subdir.mk
 	arm-none-eabi-g++ "$<" -mcpu=cortex-m7 -std=gnu++14 -g3 -DSTM32 -DDISP_LCD -D_GCC -D_HSE_CLK=25000 -D_HSE_BYPASS_OFF -DSTM32F769xx -DSTM32F7 -DDEBUG -DSTM32F769NIHx -c -I../../EmbSysLib/Src/MCU/STM32F7xx/Sys/GCC -I../Src -I../../EmbSysLib/Src/MCU/STM32F7xx -I../../EmbSysLib/Src -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Src/lib.d" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@"
+
+clean: clean-Src
+
+clean-Src:
+	-$(RM) ./Src/Disp_OTM8009A.d ./Src/Disp_OTM8009A.o ./Src/Game.d ./Src/Game.o ./Src/TouchScreen.d ./Src/TouchScreen.o ./Src/lib.d ./Src/lib.o ./Src/main.d ./Src/main.o
+
+.PHONY: clean-Src
 

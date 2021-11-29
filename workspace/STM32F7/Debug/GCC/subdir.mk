@@ -23,3 +23,10 @@ GCC/RTOScontext.o: C:/Users/TIm\ Ludwig/Documents/GitHub/STM32-Touchscreen/works
 GCC/startup_stm32f769nihx.o: C:/Users/TIm\ Ludwig/Documents/GitHub/STM32-Touchscreen/workspace/EmbSysLib/Src/MCU/STM32F7xx/Sys/GCC/startup_stm32f769nihx.s GCC/subdir.mk
 	arm-none-eabi-gcc -mcpu=cortex-m7 -g3 -c -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
 
+clean: clean-GCC
+
+clean-GCC:
+	-$(RM) ./GCC/RTOScontext.d ./GCC/RTOScontext.o ./GCC/startup_stm32f769nihx.d ./GCC/startup_stm32f769nihx.o
+
+.PHONY: clean-GCC
+

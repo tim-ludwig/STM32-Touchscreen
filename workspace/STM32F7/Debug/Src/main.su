@@ -8,10 +8,13 @@ DSI.h:31:5:cHwDSI::cHwDSI(uint32_t)	16	static
 DSI.h:212:16:virtual void cHwDSI::writeShort(uint8_t, uint8_t)	16	static
 DSI.h:225:16:virtual void cHwDSI::writeLong(uint8_t*, uint32_t)	32	static
 I2Cmaster.h:69:9:cHwI2Cmaster::Device::Device(cHwI2Cmaster&, BYTE)	24	static
+devDisplayGraphic.h:187:8:WORD cDevDisplayGraphic::getWidth()	16	static
+devDisplayGraphic.h:193:8:WORD cDevDisplayGraphic::getHeight()	16	static
 gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
 stl_vector.h:125:14:std::_Vector_base<Move, std::allocator<Move> >::_Vector_impl::~_Vector_impl()	16	static
+main.cpp:20:13:WORD min(WORD, WORD)	16	static
 Game.h:24:7:Game::~Game()	16	static
-main.cpp:19:5:int main()	64	static
+main.cpp:24:5:int main()	120	static
 DisplayFont.h:118:5:cHwDisplayFontData<NUM_OF_CHAR, BYTE_PER_CHAR>::operator cHwDisplayFont() const [with short unsigned int NUM_OF_CHAR = 96; unsigned char BYTE_PER_CHAR = 12]	16	static
 allocator.h:153:7:std::allocator< <template-parameter-1-1> >::~allocator() [with _Tp = Move]	16	static
 stl_vector.h:330:7:std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = Move; _Alloc = std::allocator<Move>]	16	static
@@ -24,6 +27,6 @@ alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_CharT> >:
 stl_construct.h:127:5:void std::_Destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = Move*]	16	static
 new_allocator.h:119:7:void __gnu_cxx::new_allocator<_Tp>::deallocate(__gnu_cxx::new_allocator<_Tp>::pointer, __gnu_cxx::new_allocator<_Tp>::size_type) [with _Tp = Move]	24	static
 stl_construct.h:117:9:static void std::_Destroy_aux<true>::__destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = Move*]	16	static
-main.cpp:32:1:void __static_initialization_and_destruction_0(int, int)	56	static
-main.cpp:32:1:cpp)	8	static
-main.cpp:32:1:cpp)	8	static
+main.cpp:59:1:void __static_initialization_and_destruction_0(int, int)	56	static
+main.cpp:59:1:cpp)	8	static
+main.cpp:59:1:cpp)	8	static
