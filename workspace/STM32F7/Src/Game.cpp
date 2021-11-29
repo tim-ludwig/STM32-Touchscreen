@@ -188,8 +188,8 @@ void Game::draw(cDevDisplayGraphic& lcd) const {
 
 			switch(board[col][row]) {
 			case 'x':
-				lcd.drawLine(l + 10, u + 10, r - 10, d - 10, 1, Color::Blue);
-				lcd.drawLine(r - 10, u + 10, l + 10, d - 10, 1, Color::Blue);
+				lcd.drawLine(l + 10, u + 10, r - 10, d - 10, 2, Color::Blue);
+				lcd.drawLine(r - 10, u + 10, l + 10, d - 10, 2, Color::Blue);
 				break;
 			case 'o':
 				lcd.drawCircle(l + cellSize / 2, u + cellSize / 2, cellSize / 2 - 10, Color::Blue);
