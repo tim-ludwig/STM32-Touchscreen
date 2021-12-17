@@ -1,0 +1,2 @@
+BoundingBox.cpp:10:1:BoundingBox::BoundingBox(int, int, int, int)	24	static
+BoundingBox.cpp:14:6:bool BoundingBox::contains(int, int)	24	static

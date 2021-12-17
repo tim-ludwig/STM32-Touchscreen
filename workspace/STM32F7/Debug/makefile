@@ -9,6 +9,9 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Src/touchlib/components/subdir.mk
+-include Src/touchlib/subdir.mk
+-include Src/tictactoe/subdir.mk
 -include Src/subdir.mk
 -include GCC/subdir.mk
 -include objects.mk

@@ -32,4 +32,7 @@ CPP_DEPS :=
 SUBDIRS := \
 GCC \
 Src \
+Src/tictactoe \
+Src/touchlib \
+Src/touchlib/components \
 

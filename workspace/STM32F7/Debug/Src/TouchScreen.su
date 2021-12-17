@@ -1,9 +1,9 @@
 I2Cmaster.h:62:11:constexpr cHwI2Cmaster::Device::Device(const cHwI2Cmaster::Device&)	16	static
 TouchScreen.cpp:10:1:TouchScreen::TouchScreen(cHwI2Cmaster::Device)	16	static
 TouchScreen.cpp:14:6:void TouchScreen::refresh()	32	static
-TouchScreen.cpp:33:6:BYTE TouchScreen::getTouchCount()	16	static
-TouchScreen.cpp:37:6:BYTE TouchScreen::getRetainedCount()	16	static
-TouchScreen.cpp:41:6:WORD TouchScreen::getX0()	16	static
-TouchScreen.cpp:45:6:WORD TouchScreen::getY0()	16	static
-TouchScreen.cpp:49:6:WORD TouchScreen::getX1()	16	static
-TouchScreen.cpp:52:6:WORD TouchScreen::getY1()	16	static
+TouchScreen.cpp:30:6:BYTE TouchScreen::getTouchCount()	16	static
+TouchScreen.cpp:34:6:BYTE TouchScreen::getGestureID()	16	static
+TouchScreen.cpp:38:6:WORD TouchScreen::getX0()	16	static
+TouchScreen.cpp:42:6:WORD TouchScreen::getY0()	16	static
+TouchScreen.cpp:46:6:WORD TouchScreen::getX1()	16	static
+TouchScreen.cpp:50:6:WORD TouchScreen::getY1()	16	static

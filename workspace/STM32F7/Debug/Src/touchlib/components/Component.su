@@ -1,0 +1,3 @@
+Component.cpp:10:1:Component::Component(TouchScreen&, cDevDisplayGraphic&)	40	static
+Component.cpp:13:1:Component::Component(TouchScreen&, cDevDisplayGraphic&, int, int, int, int)	32	static
+Component.cpp:21:14:BoundingBox& Component::getBoundingBox()	16	static

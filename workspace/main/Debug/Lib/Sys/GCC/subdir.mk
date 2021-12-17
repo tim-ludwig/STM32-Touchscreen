@@ -30,3 +30,10 @@ Lib/Sys/GCC/%.o: ../Lib/Sys/GCC/%.s Lib/Sys/GCC/subdir.mk
 Lib/Sys/GCC/%.o: ../Lib/Sys/GCC/%.c Lib/Sys/GCC/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32L4 -DSTM32 -DSTM32L432xx -c -I./Src -I./Lib -I../Lib/Sys -I../Lib/Sys/GCC -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 
+clean: clean-Lib-2f-Sys-2f-GCC
+
+clean-Lib-2f-Sys-2f-GCC:
+	-$(RM) ./Lib/Sys/GCC/startup_stm32l432kcux.d ./Lib/Sys/GCC/startup_stm32l432kcux.o ./Lib/Sys/GCC/syscalls.d ./Lib/Sys/GCC/syscalls.o ./Lib/Sys/GCC/sysmem.d ./Lib/Sys/GCC/sysmem.o
+
+.PHONY: clean-Lib-2f-Sys-2f-GCC
+

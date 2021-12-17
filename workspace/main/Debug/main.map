@@ -208,7 +208,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x16 ./Lib/Sys/GCC/syscalls.o
  .debug_macro   0x0000000000000000       0xce ./Lib/Sys/GCC/syscalls.o
  .debug_line    0x0000000000000000      0x809 ./Lib/Sys/GCC/syscalls.o
- .debug_str     0x0000000000000000     0x8ecd ./Lib/Sys/GCC/syscalls.o
+ .debug_str     0x0000000000000000     0x8eec ./Lib/Sys/GCC/syscalls.o
  .comment       0x0000000000000000       0x54 ./Lib/Sys/GCC/syscalls.o
  .debug_frame   0x0000000000000000      0x2ac ./Lib/Sys/GCC/syscalls.o
  .ARM.attributes
@@ -1273,21 +1273,21 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_aranges
                 0x0000000000000138       0x28 ./Src/main.o
 
-.debug_str      0x0000000000000000    0x80c65
- .debug_str     0x0000000000000000       0x62 ./Lib/Sys/GCC/startup_stm32l432kcux.o
- .debug_str     0x0000000000000062     0x79a4 ./Lib/Sys/GCC/sysmem.o
-                                       0x7ba3 (size before relaxing)
- .debug_str     0x0000000000007a06    0x789bb ./Lib/Sys/system_stm32l4xx.o
-                                      0x7bd56 (size before relaxing)
- .debug_str     0x00000000000803c1      0x18d ./Lib/nucleoPin.o
+.debug_str      0x0000000000000000    0x80c38
+ .debug_str     0x0000000000000000       0x81 ./Lib/Sys/GCC/startup_stm32l432kcux.o
+ .debug_str     0x0000000000000081     0x79a4 ./Lib/Sys/GCC/sysmem.o
+                                       0x7bc2 (size before relaxing)
+ .debug_str     0x0000000000007a25    0x789bb ./Lib/Sys/system_stm32l4xx.o
+                                      0x7bd75 (size before relaxing)
+ .debug_str     0x00000000000803e0      0x141 ./Lib/nucleoPin.o
                                       0x7bc63 (size before relaxing)
- .debug_str     0x000000000008054e       0x70 ./Lib/port.o
+ .debug_str     0x0000000000080521       0x70 ./Lib/port.o
                                       0x7bd0e (size before relaxing)
- .debug_str     0x00000000000805be      0x450 ./Lib/timer.o
+ .debug_str     0x0000000000080591      0x450 ./Lib/timer.o
                                       0x7c116 (size before relaxing)
- .debug_str     0x0000000000080a0e      0x223 ./Lib/uart.o
+ .debug_str     0x00000000000809e1      0x223 ./Lib/uart.o
                                       0x80728 (size before relaxing)
- .debug_str     0x0000000000080c31       0x34 ./Src/main.o
+ .debug_str     0x0000000000080c04       0x34 ./Src/main.o
                                       0x7bcc4 (size before relaxing)
 
 .debug_ranges   0x0000000000000000       0xe8

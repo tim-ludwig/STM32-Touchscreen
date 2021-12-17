@@ -1,0 +1,10 @@
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+devDisplayGraphic.h:187:8:WORD cDevDisplayGraphic::getWidth()	16	static
+devDisplayGraphic.h:193:8:WORD cDevDisplayGraphic::getHeight()	16	static
+TicTacToeGame.cpp:10:13:WORD min(WORD, WORD)	16	static
+TicTacToeGame.cpp:14:1:TicTacToeGame::TicTacToeGame(TouchScreen&, cDevDisplayGraphic&, Game&)	64	static
+TicTacToeGame.cpp:27:6:virtual void TicTacToeGame::onTouch()	40	static
+TicTacToeGame.cpp:37:6:virtual void TicTacToeGame::show()	72	static
+TicTacToeGame.cpp:72:1:void __static_initialization_and_destruction_0(int, int)	16	static
+TicTacToeGame.cpp:72:1:cpp)	8	static
+TicTacToeGame.cpp:72:1:cpp)	8	static

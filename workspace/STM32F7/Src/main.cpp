@@ -1,7 +1,7 @@
 //*******************************************************************
 /*!
  \file   main.cpp
- \author Thomas Breuer
+ \author Thomas Breuer, Tim Ludwig
  \date   18.09.2019
  \brief  Template
  */
@@ -11,49 +11,41 @@
 
 #include "lib.h"
 #include "config.h"
+#include <tictactoe/TicTacToe.h>
+#include "touchlib/TouchScreen.h"
+#include "touchlib/components/TicTacToeGame.h"
 
-#include "Game.h"
-#include "TouchScreen.h"
 
 //*******************************************************************
 
-static WORD min(WORD a, WORD b) {
-		return a < b ? a : b;
-}
-
 int main(void) {
 	lcd.clear();
-	TouchScreen touch(cHwI2Cmaster::Device(i2c, 0x54 /*I2C-Addresse*/));
-	touch.refresh();
+	cHwI2Cmaster::Device i2cTouch(i2c, 0x54 /*I2C-Addresse*/);
+	TouchScreen touch(800, 472, i2cTouch, cHwPort_N::PortId::PI, (BYTE) 13);
+	touch.setInterruptMode(true);
 
-	WORD sideLength = min(lcd.getWidth(), lcd.getHeight());
-	WORD cellSize = sideLength / 3;
-	WORD left = sideLength < lcd.getWidth() ? (lcd.getWidth() - sideLength) / 2 : 0;
-	WORD top = sideLength < lcd.getHeight() ? (lcd.getHeight() - sideLength) / 2 : 0;
+	Game game;
+	TicTacToeGame g(touch, lcd, game);
+	com.printf("\r\nNeues Spiel!\r\n");
 
-	Game g;
-	g.draw(lcd);
-
-	while(!g.hasEnded()){
-		do {
-			touch.refresh();
-			//lcd.printf(0, 0, 10, "waiting...");
-			//lcd.refresh();
-		} while(touch.getTouchCount() == 0);
-
-		WORD x = (touch.getX0() - left) / cellSize;
-		WORD y = ((lcd.getHeight() - touch.getY0()) - top) / cellSize;
-
-		g.doMove(Move(x, y));
-		g.draw(lcd);
-
-		g.doMove(g.bestMove());
-		g.draw(lcd);
+	while(!game.hasEnded()){
+		if(game.getCurrentPlayer() == 'o') game.doMove(game.bestMove());
+		com.printf("%d\r\n", touch.getTouchCount());
+		lcd.clear();
+		g.show();
+		//game.uartPrint(com);
+		lcd.refresh();
 	}
 
-	char winner = g.winner();
-	if(winner == ' ') lcd.printf(0, 0, 5, "Draw!");
-	else lcd.printf(0, 0, 6, "%c won!", winner);
+	char winner = game.winner();
+	if(winner == ' ') {
+		lcd.printf(0, 0, 5, "Draw!");
+		com.printf("Draw!\r\n");
+	} else {
+		lcd.printf(0, 0, 6, "%c won!", winner);
+		com.printf("%c won!\r\n", winner);
+	}
 
 	lcd.refresh();
 }
+
