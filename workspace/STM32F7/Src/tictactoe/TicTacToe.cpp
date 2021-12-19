@@ -3,7 +3,7 @@
 #include <limits>
 
 Move::Move(int _row, int _col) : col(_col), row(_row) {}
-Move::Move(const char str[3]) : Move(str[0] - 'a', str[1] - '0') {}
+Move::Move(const char str[3]) : Move(str[1] - '0', str[0] - 'a') {}
 
 std::istream& operator>>(std::istream& stream, Move& move) {
     char in[3];

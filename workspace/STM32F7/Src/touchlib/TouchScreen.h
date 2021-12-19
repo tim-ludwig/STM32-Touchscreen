@@ -2,7 +2,7 @@
 #define TOUCHSCREEN_H_
 
 #include "lib.h"
-#include <vector>
+#include <list>
 
 class Component;
 
@@ -55,7 +55,7 @@ private:
 	cHwI2Cmaster::Device &i2cTouch;
 	cHwPort_N::PortId interruptPort;
 
-	std::vector<Component*> components;
+	std::list<Component*> components;
 
 public:
 	BYTE interruptPin;
@@ -75,6 +75,7 @@ public:
 
 	void onTouch(void);
 	void addComponent(Component*);
+	void removeComponent(Component*);
 
 	WORD getTouchCount();
 	WORD getX();

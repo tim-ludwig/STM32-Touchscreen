@@ -7,8 +7,6 @@
  */
 
 //*******************************************************************
-#include <stdio.h>
-
 #include "lib.h"
 #include "config.h"
 #include <tictactoe/TicTacToe.h>
@@ -30,10 +28,10 @@ int main(void) {
 
 	while(!game.hasEnded()){
 		if(game.getCurrentPlayer() == 'o') game.doMove(game.bestMove());
-		com.printf("%d\r\n", touch.getTouchCount());
+		//com.printf("%d\r\n", touch.getTouchCount());
 		lcd.clear();
 		g.show();
-		//game.uartPrint(com);
+		game.uartPrint(com);
 		lcd.refresh();
 	}
 

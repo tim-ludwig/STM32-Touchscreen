@@ -18,6 +18,10 @@ Component::Component(TouchScreen &_touchScreen, cDevDisplayGraphic &_lcd,
 	touchScreen.addComponent(this);
 }
 
+Component::~Component() {
+	touchScreen.removeComponent(this);
+}
+
 BoundingBox& Component::getBoundingBox() {
 	return box;
 }

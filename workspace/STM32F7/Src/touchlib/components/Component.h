@@ -14,13 +14,14 @@
 
 class Component {
 protected:
-	TouchScreen &touchScreen;
+	TouchScreen& touchScreen;
 	cDevDisplayGraphic &lcd;
 	BoundingBox box;
 
 public:
 	Component(TouchScreen&, cDevDisplayGraphic&);
 	Component(TouchScreen&, cDevDisplayGraphic&, int, int, int, int);
+	virtual ~Component();
 
 	BoundingBox& getBoundingBox();
 

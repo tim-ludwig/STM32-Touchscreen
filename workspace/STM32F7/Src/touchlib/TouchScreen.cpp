@@ -91,6 +91,10 @@ void TouchScreen::addComponent(Component* c) {
 	components.push_back(c);
 }
 
+void TouchScreen::removeComponent(Component* c) {
+	components.remove(c);
+}
+
 WORD TouchScreen::getTouchCount() {
 	return touchCount;
 }
