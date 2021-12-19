@@ -13,16 +13,21 @@
 #include "Color.h"
 #include "lib.h"
 
-class TicTacToeGame : Component {
-private:
-	Game& g;
-	WORD sideLength, cellSize;
+namespace touchlib {
+	class TicTacToeGame: Component {
+	private:
+		Game& g;
+		WORD sideLength, cellSize;
 
-public:
-	TicTacToeGame(TouchScreen&, cDevDisplayGraphic&, Game&);
+	public:
+		TicTacToeGame(TouchScreen&, cDevDisplayGraphic&, Game&);
 
-	void onTouch();
-    void show();
-};
+		virtual void onEvent(TouchEvent&);
+		virtual void onEvent(DragEvent&);
+		virtual void onEvent(ReleaseEvent&);
+
+		void show();
+	};
+}
 
 #endif /* TOUCHLIB_COMPONENTS_TICTACTOEGAME_H_ */

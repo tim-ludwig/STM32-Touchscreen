@@ -7,12 +7,8 @@
 
 #include <touchlib/events/TouchEvent.h>
 
-TouchEvent::TouchEvent() {
-	// TODO Auto-generated constructor stub
-
+namespace touchlib {
+	TouchEvent::TouchEvent(WORD _x, WORD _y, WORD _x1, WORD _y1,
+			WORD _touchCount) : TouchScreenEvent(_x, _y, _x1, _y1, _touchCount) {
+	}
 }
-
-TouchEvent::~TouchEvent() {
-	// TODO Auto-generated destructor stub
-}
-

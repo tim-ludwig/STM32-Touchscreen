@@ -10,9 +10,11 @@
 
 #include "Component.h"
 
-class Slider: Component {
-public:
-	virtual ~Slider();
-};
+namespace touchlib {
+	class Slider: Component {
+	public:
+		virtual ~Slider();
+	};
+}
 
 #endif /* TOUCHLIB_COMPONENTS_SLIDER_H_ */

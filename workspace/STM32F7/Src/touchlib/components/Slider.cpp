@@ -6,3 +6,5 @@
  */
 
 #include <touchlib/components/Slider.h>
+
+namespace touchlib {}

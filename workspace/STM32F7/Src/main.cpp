@@ -16,6 +16,9 @@
 
 //*******************************************************************
 
+using touchlib::TouchScreen;
+using touchlib::TicTacToeGame;
+
 int main(void) {
 	lcd.clear();
 	cHwI2Cmaster::Device i2cTouch(i2c, 0x54 /*I2C-Addresse*/);

@@ -12,21 +12,28 @@
 #include "touchlib/BoundingBox.h"
 #include "lib.h"
 
-class Component {
-protected:
-	TouchScreen& touchScreen;
-	cDevDisplayGraphic &lcd;
-	BoundingBox box;
+namespace touchlib {
+	class Component {
+	private:
+		TouchScreen& touchScreen;
 
-public:
-	Component(TouchScreen&, cDevDisplayGraphic&);
-	Component(TouchScreen&, cDevDisplayGraphic&, int, int, int, int);
-	virtual ~Component();
+	protected:
+		cDevDisplayGraphic& lcd;
+		BoundingBox box;
 
-	BoundingBox& getBoundingBox();
+	public:
+		Component(TouchScreen&, cDevDisplayGraphic&);
+		Component(TouchScreen&, cDevDisplayGraphic&, int, int, int, int);
+		~Component();
 
-	virtual void onTouch() = 0;
-	virtual void show() = 0;
-};
+		BoundingBox& getBoundingBox();
+
+		virtual void onEvent(DragEvent&) = 0;
+		virtual void onEvent(TouchEvent&) = 0;
+		virtual void onEvent(ReleaseEvent&) = 0;
+
+		virtual void show() = 0;
+	};
+}
 
 #endif /* TOUCHLIB_COMPONENTS_COMPONENT_H_ */
