@@ -11,9 +11,23 @@
 #include "Component.h"
 
 namespace touchlib {
-	class Slider: Component {
+	class Slider: public Component {
+	private:
+		int radius;
+		double position;
+		bool horizontal;
+
+		void setPosition(WORD x, WORD y);
 	public:
-		virtual ~Slider();
+		Slider(int _x, int _y, int _width, int _height, bool _horizontal, int _r, double pos);
+
+		double getPosition();
+
+		void onEvent(TouchEvent&);
+		void onEvent(DragEvent&);
+		void onEvent(ReleaseEvent&);
+
+		void show(cDevDisplayGraphic&);
 	};
 }
 

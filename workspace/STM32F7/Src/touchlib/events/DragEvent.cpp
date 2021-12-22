@@ -8,10 +8,8 @@
 #include <touchlib/events/DragEvent.h>
 
 namespace touchlib {
-	DragEvent::DragEvent(WORD _x, WORD _xo, WORD _y, WORD _yo, WORD _x1,
-			WORD _x1o, WORD _y1, WORD _y1o, WORD _touchCount) :
-			TouchScreenEvent(_x, _y, _x1, _y1, _touchCount), xo(_xo), yo(_yo), x1o(
-					_x1o), y1o(_y1o) {
+	DragEvent::DragEvent(WORD _x, WORD _xo, WORD _y, WORD _yo, WORD _x1, WORD _x1o, WORD _y1, WORD _y1o, WORD _touchCount) :
+			TouchScreenEvent(_x, _y, _x1, _y1, _touchCount), xo(_xo), yo(_yo), x1o(_x1o), y1o(_y1o) {
 	}
 
 	WORD DragEvent::getXO() {

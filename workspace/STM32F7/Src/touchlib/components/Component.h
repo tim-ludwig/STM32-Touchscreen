@@ -14,17 +14,12 @@
 
 namespace touchlib {
 	class Component {
-	private:
-		TouchScreen& touchScreen;
-
 	protected:
-		cDevDisplayGraphic& lcd;
 		BoundingBox box;
 
 	public:
-		Component(TouchScreen&, cDevDisplayGraphic&);
-		Component(TouchScreen&, cDevDisplayGraphic&, int, int, int, int);
-		~Component();
+		Component();
+		Component(int, int, int, int);
 
 		BoundingBox& getBoundingBox();
 
@@ -32,7 +27,7 @@ namespace touchlib {
 		virtual void onEvent(TouchEvent&) = 0;
 		virtual void onEvent(ReleaseEvent&) = 0;
 
-		virtual void show() = 0;
+		virtual void show(cDevDisplayGraphic& lcd) = 0;
 	};
 }
 

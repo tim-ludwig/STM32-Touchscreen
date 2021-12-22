@@ -8,8 +8,7 @@
 #include <touchlib/events/TouchScreenEvent.h>
 
 namespace touchlib {
-	TouchScreenEvent::TouchScreenEvent(WORD _x, WORD _y, WORD _x1, WORD _y1,
-			WORD _touchCount) :
+	TouchScreenEvent::TouchScreenEvent(WORD _x, WORD _y, WORD _x1, WORD _y1, WORD _touchCount) :
 			x(_x), y(_y), x1(_x1), y1(_y1), touchCount(_touchCount) {
 	}
 

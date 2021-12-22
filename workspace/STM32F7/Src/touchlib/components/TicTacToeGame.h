@@ -10,23 +10,23 @@
 
 #include "tictactoe/TicTacToe.h"
 #include "touchlib/components/Component.h"
-#include "Color.h"
 #include "lib.h"
 
 namespace touchlib {
-	class TicTacToeGame: Component {
+	class TicTacToeGame : public Component {
 	private:
 		Game& g;
 		WORD sideLength, cellSize;
+		bool ai;
 
 	public:
-		TicTacToeGame(TouchScreen&, cDevDisplayGraphic&, Game&);
+		TicTacToeGame(Game&, bool, WORD w, WORD h);
 
 		virtual void onEvent(TouchEvent&);
 		virtual void onEvent(DragEvent&);
 		virtual void onEvent(ReleaseEvent&);
 
-		void show();
+		void show(cDevDisplayGraphic&);
 	};
 }
 

@@ -15,6 +15,9 @@
 #include "Com/Hardware/Display/Font/Font_8x12.h"
 
 //*******************************************************************
+#include "touchlib/TouchScreen.h"
+
+//*******************************************************************
 cSystem sys;
 
 cHwPinConfig::MAP cHwPinConfig::table[] =
@@ -42,22 +45,22 @@ cHwPinConfig::MAP cHwPinConfig::table[] =
 	OTG_FS_DP_PA_12,
 
 	//FMC
-	FMC_D0_PD_14,  
-	FMC_D1_PD_15,  
-	FMC_D2_PD_0, 
+	FMC_D0_PD_14,
+	FMC_D1_PD_15,
+	FMC_D2_PD_0,
 	FMC_D3_PD_1,
 	FMC_D4_PE_7,
-	FMC_D5_PE_8, 
-	FMC_D6_PE_9, 
-	FMC_D7_PE_10, 
-	FMC_D8_PE_11, 
-	FMC_D9_PE_12, 
-	FMC_D10_PE_13, 
-	FMC_D11_PE_14, 
+	FMC_D5_PE_8,
+	FMC_D6_PE_9,
+	FMC_D7_PE_10,
+	FMC_D8_PE_11,
+	FMC_D9_PE_12,
+	FMC_D10_PE_13,
+	FMC_D11_PE_14,
 	FMC_D12_PE_15,
-	FMC_D13_PD_8,  
+	FMC_D13_PD_8,
 	FMC_D14_PD_9,
-	FMC_D15_PD_10,  
+	FMC_D15_PD_10,
 	FMC_D16_PH_8,
 	FMC_D17_PH_9,
 	FMC_D18_PH_10,
@@ -99,7 +102,7 @@ cHwPinConfig::MAP cHwPinConfig::table[] =
 	FMC_SDNWE_PH_5,
 	FMC_SDNRAS_PF_11,
 	FMC_NBL0_PE_0,
-	FMC_NBL1_PE_1, 
+	FMC_NBL1_PE_1,
 	FMC_NBL2_PI_4,
 	FMC_NBL3_PI_5,
 
@@ -112,9 +115,9 @@ cHwPort_N            portB        ( cHwPort_N::PB );
 cHwPort_N            portC        ( cHwPort_N::PC );
 cHwPort_N            portD        ( cHwPort_N::PD );
 cHwPort_N            portE        ( cHwPort_N::PE );
-cHwPort_N            portI        ( cHwPort_N::PI );      
+cHwPort_N            portI        ( cHwPort_N::PI );
 cHwPort_N            portJ        ( cHwPort_N::PJ );
-	
+
 cHwTimer_N           timer        ( cHwTimer_N::TIM_3, 10000 );
 
 cHwUART_N            uart         ( cHwUART_N::USART_1,
@@ -138,12 +141,12 @@ cDevTextIO_UART com ( uart, 255, 255 );
 //*******************************************************************
 // LCD
 //*******************************************************************
-cHwFMC              fmc        ( cHwFMC::SDRAM_Bank1 );  
+cHwFMC              fmc        ( cHwFMC::SDRAM_Bank1 );
 cHwDSI              hwDSI      ( fmc.startAddr()     );
 cHwPort::Pin        lcdResetPin( portJ, 15 );
-                         
-cHwDisp_OTM8009Aram disp       ( hwDSI,lcdResetPin, 
-                                 cHwDisp_OTM8009A::LANDSCAPE_90, 
+
+cHwDisp_OTM8009Aram disp       ( hwDSI,lcdResetPin,
+                                 cHwDisp_OTM8009A::LANDSCAPE_90,
                                  fontFont_8x12, 2 );
 cDevDisplayGraphic  lcd        ( disp );
 
@@ -152,5 +155,7 @@ cDevDisplayGraphic  lcd        ( disp );
 //*******************************************************************
 cHwI2Cmaster_N      i2c        ( cHwI2Cmaster_N::I2C_4,
                                  cHwI2Cmaster::CR_400kHz );
+cHwI2Cmaster::Device i2cTouch(i2c, 0x54 /*I2C-Addresse*/);
+touchlib::TouchScreen touchScreen(lcd.getWidth(), lcd.getHeight(), i2cTouch, cHwPort_N::PortId::PI, (BYTE) 13);
 
 //EOF
