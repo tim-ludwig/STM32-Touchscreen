@@ -17,9 +17,6 @@ namespace touchlib {
 	}
 
 	void BoundingBox::resizeToFit(int _x, int _y) {
-		if (contains(_x, _y))
-			return;
-
 		if (_x < left)
 			left = _x;
 		else if (_x > right)
