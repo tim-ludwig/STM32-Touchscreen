@@ -13,7 +13,7 @@
 namespace touchlib {
 	class ReleaseEvent: public TouchScreenEvent {
 	public:
-		ReleaseEvent(WORD _x, WORD _y, WORD _x1, WORD _y1, WORD _touchCount);
+		ReleaseEvent(WORD x, WORD y, WORD x1, WORD y1, WORD touchCount);
 	};
 }
 

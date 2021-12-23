@@ -5,22 +5,22 @@
  *      Author: TIm Ludwig
  */
 
-#ifndef TOUCHLIB_COMPONENTS_TICTACTOEGAME_H_
-#define TOUCHLIB_COMPONENTS_TICTACTOEGAME_H_
+#ifndef TOUCHLIB_COMPONENTS_TICTACTOECOMPONENT_H_
+#define TOUCHLIB_COMPONENTS_TICTACTOECOMPONENT_H_
 
 #include "tictactoe/TicTacToe.h"
 #include "touchlib/components/Component.h"
 #include "lib.h"
 
 namespace touchlib {
-	class TicTacToeGame : public Component {
+	class TicTacToeComponent : public Component {
 	private:
-		Game& g;
+		TicTacToeGame& g;
 		WORD sideLength, cellSize;
 		bool ai;
 
 	public:
-		TicTacToeGame(Game&, bool, WORD w, WORD h);
+		TicTacToeComponent(TicTacToeGame&, bool ai, int w, int h);
 
 		virtual void onEvent(TouchEvent&);
 		virtual void onEvent(DragEvent&);
@@ -30,4 +30,4 @@ namespace touchlib {
 	};
 }
 
-#endif /* TOUCHLIB_COMPONENTS_TICTACTOEGAME_H_ */
+#endif /* TOUCHLIB_COMPONENTS_TICTACTOECOMPONENT_H_ */

@@ -19,6 +19,8 @@ namespace touchlib {
 	}
 
 	void Container::addComponent(Component* c) {
+		box.resizeToFit(c->getBoundingBox());
+
 		components.push_back(c);
 	}
 
@@ -39,6 +41,9 @@ namespace touchlib {
 	void Container::onEvent(DragEvent& event) {
 		if (enteredOn.empty()) {
 			for (Component* c : components) {
+				if (!c->getBoundingBox().contains(event.getX(), event.getY()))
+					continue;
+
 				c->onEvent(event);
 			}
 		} else {
@@ -51,6 +56,9 @@ namespace touchlib {
 	void Container::onEvent(ReleaseEvent& event) {
 		if (enteredOn.empty()) {
 			for (Component* c : components) {
+				if (!c->getBoundingBox().contains(event.getX(), event.getY()))
+					continue;
+
 				c->onEvent(event);
 			}
 		} else {
@@ -62,7 +70,7 @@ namespace touchlib {
 	}
 
 	void Container::show(cDevDisplayGraphic& lcd) {
-		for(Component* c : components) {
+		for (Component* c : components) {
 			c->show(lcd);
 		}
 	}

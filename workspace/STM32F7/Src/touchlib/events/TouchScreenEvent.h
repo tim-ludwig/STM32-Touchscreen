@@ -16,7 +16,7 @@ namespace touchlib {
 		WORD x, y, x1, y1, touchCount;
 
 	public:
-		TouchScreenEvent(WORD _x, WORD _y, WORD _x1, WORD _y1, WORD _touchCount);
+		TouchScreenEvent(WORD x, WORD y, WORD x1, WORD y1, WORD touchCount);
 
 		WORD getTouchCount();
 		WORD getX();

@@ -11,14 +11,18 @@
 namespace touchlib {
 	class BoundingBox {
 	public:
-		int x;
-		int y;
-		int width;
-		int height;
+		int left, right, top, bottom;
 
-		BoundingBox(int x, int y, int width, int height);
+		BoundingBox(int x, int y, int w, int h);
 
-		bool contains(int x, int y);
+		bool contains(int x, int y) const;
+		void resizeToFit(int x, int y);
+		void resizeToFit(BoundingBox const&);
+
+		int x();
+		int y();
+		int width();
+		int height();
 	};
 }
 

@@ -23,7 +23,7 @@ bool Move::isValid() const {
     return 0 <= row && row < 3 && 0 <= col && col < 3;
 }
 
-Game::Game() {
+TicTacToeGame::TicTacToeGame() {
     for(int row = 0; row < 3; ++row) {
         for(int col = 0; col < 3; ++col) {
             board[row][col] = ' ';
@@ -31,15 +31,15 @@ Game::Game() {
     }
 }
 
-char Game::at(int row, int col) {
+char TicTacToeGame::at(int row, int col) {
 	return board[row][col];
 }
 
-char Game::getCurrentPlayer() const {
+char TicTacToeGame::getCurrentPlayer() const {
     return currentPlayer;
 }
 
-bool Game::doMove(Move move) {
+bool TicTacToeGame::doMove(Move move) {
     if(board[move.row][move.col] != ' ' || !move.isValid()) return false;
 
     moveStack.push_back(move);
@@ -50,7 +50,7 @@ bool Game::doMove(Move move) {
     return true;
 }
 
-bool Game::undoMove() {
+bool TicTacToeGame::undoMove() {
     if(moveStack.empty()) return false;
 
     Move move = moveStack.back();
@@ -62,11 +62,11 @@ bool Game::undoMove() {
     return true;
 }
 
-bool Game::hasEnded() const {
+bool TicTacToeGame::hasEnded() const {
     return winner() != '\0';
 }
 
-char Game::winner() const {
+char TicTacToeGame::winner() const {
     // verticals
     for(int col = 0; col < 3; ++col) {
         if(board[0][col] != ' ' && board[0][col] == board[1][col] && board[1][col] == board[2][col]) return board[0][col];
@@ -88,7 +88,7 @@ char Game::winner() const {
     return '\0';
 }
 
-Move Game::bestMove() {
+Move TicTacToeGame::bestMove() {
     Move best(-1, -1);
     double val = std::numeric_limits<double>::infinity();
     if(currentPlayer == 'x') val = -val;
@@ -118,7 +118,7 @@ Move Game::bestMove() {
     return best;
 }
 
-double Game::eval() {
+double TicTacToeGame::eval() {
     switch (winner()) {
         case 'x':
             return std::numeric_limits<double>::infinity();
@@ -148,7 +148,7 @@ double Game::eval() {
     return NAN;
 }
 
-std::ostream& operator<<(std::ostream& stream, const Game& game) {
+std::ostream& operator<<(std::ostream& stream, const TicTacToeGame& game) {
     stream << "  | a | b | c |\n";
     for(int row = 0; row < 3; ++row) {
         stream << "--+---+---+---+\n";
@@ -166,7 +166,7 @@ std::ostream& operator<<(std::ostream& stream, const Game& game) {
     return stream;
 }
 
-void Game::uartPrint(cDevTextIO_UART& com) const {
+void TicTacToeGame::uartPrint(cDevTextIO_UART& com) const {
 	com.printf("  | a | b | c |\r\n");
 
 	for(int row = 0; row < 3; ++row) {

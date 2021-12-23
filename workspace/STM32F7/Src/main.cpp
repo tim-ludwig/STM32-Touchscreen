@@ -10,23 +10,23 @@
 #include "lib.h"
 #include "config.h"
 #include <tictactoe/TicTacToe.h>
+#include <touchlib/components/TicTacToeComponent.h>
 #include "touchlib/TouchScreen.h"
 #include "touchlib/components/Container.h"
-#include "touchlib/components/TicTacToeGame.h"
 #include "touchlib/components/Slider.h"
 #include "Color.h"
 
 //*******************************************************************
 
-using touchlib::TicTacToeGame;
+using touchlib::TicTacToeComponent;
 using touchlib::Slider;
 using touchlib::Container;
 
 void tictactoe(void) {
 	Container root{0, 0, lcd.getWidth(), lcd.getHeight()};
 	lcd.clear();
-	Game game;
-	TicTacToeGame g(game, true, lcd.getWidth(), lcd.getHeight());
+	TicTacToeGame game;
+	TicTacToeComponent g(game, true, lcd.getWidth(), lcd.getHeight());
 
 	root.addComponent(&g);
 	touchScreen.setRootContainer(&root);
@@ -59,9 +59,9 @@ void tictactoe(void) {
 }
 
 int main(void) {
-	Container root{0, 0, lcd.getWidth(), lcd.getHeight()};
-
+	Container root;
 	Slider s{100, 100, 300, 50, true, 15, 0.0};
+
 	root.addComponent(&s);
 	touchScreen.setRootContainer(&root);
 

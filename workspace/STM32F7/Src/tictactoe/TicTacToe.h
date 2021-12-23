@@ -20,15 +20,15 @@ public:
     bool isValid() const;
 };
 
-class Game {
+class TicTacToeGame {
     char board[3][3] = {};
     char currentPlayer = 'x';
     std::vector<Move> moveStack = {};
 
-    friend std::ostream& operator<<(std::ostream&, const Game&);
+    friend std::ostream& operator<<(std::ostream&, const TicTacToeGame&);
 
 public:
-    Game();
+    TicTacToeGame();
 
     char at(int row, int col);
 

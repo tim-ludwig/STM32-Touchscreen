@@ -19,7 +19,7 @@ namespace touchlib {
 
 		void setPosition(WORD x, WORD y);
 	public:
-		Slider(int _x, int _y, int _width, int _height, bool _horizontal, int _r, double pos);
+		Slider(int x, int y, int w, int h, bool horizontal, int r, double pos);
 
 		double getPosition();
 

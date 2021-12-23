@@ -18,7 +18,7 @@ namespace touchlib {
 	}
 
 	void Slider::setPosition(WORD x, WORD y) {
-		position = horizontal ? (x - (box.x + radius)) / (box.width - 2.0 * radius) : (y - (box.y + radius)) / (box.height - 2.0 * radius);
+		position = horizontal ? (x - (box.x() + radius)) / (box.width() - 2.0 * radius) : (y - (box.y() + radius)) / (box.height() - 2.0 * radius);
 
 		if (position < 0)
 			position = 0.0;
@@ -37,14 +37,14 @@ namespace touchlib {
 	}
 
 	void Slider::show(cDevDisplayGraphic& lcd) {
-		int x = box.x + radius, y = box.y + radius;
+		int x = box.x() + radius, y = box.y() + radius;
 
 		if(horizontal) {
-			lcd.drawRectangle(x - 1, y - 1, box.width - 2 * radius + 2, 2, Color::Black);
-			x += (box.width - 2 * radius) * position;
+			lcd.drawRectangle(x - 1, y - 1, box.width() - 2 * radius + 2, 2, Color::Black);
+			x += (box.width() - 2 * radius) * position;
 		} else {
-			lcd.drawRectangle(x - 1, y - 1, 2, box.height - 2 * radius + 2, Color::Black);
-			y += (box.height - 2 * radius) * position;
+			lcd.drawRectangle(x - 1, y - 1, 2, box.height() - 2 * radius + 2, Color::Black);
+			y += (box.height() - 2 * radius) * position;
 		}
 
 		lcd.drawCircle(x, y, radius, Color::Black);

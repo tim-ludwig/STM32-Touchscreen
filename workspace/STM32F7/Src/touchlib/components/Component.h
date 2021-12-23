@@ -19,7 +19,7 @@ namespace touchlib {
 
 	public:
 		Component();
-		Component(int, int, int, int);
+		Component(int x, int y, int w, int h);
 
 		BoundingBox& getBoundingBox();
 

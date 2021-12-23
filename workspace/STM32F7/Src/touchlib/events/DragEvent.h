@@ -15,7 +15,7 @@ namespace touchlib {
 	private:
 		WORD xo, yo, x1o, y1o;
 	public:
-		DragEvent(WORD _x, WORD _xo, WORD _y, WORD _yo, WORD _x1, WORD _x1o, WORD _y1, WORD _y1o, WORD _touchCount);
+		DragEvent(WORD x, WORD xo, WORD y, WORD yo, WORD x1, WORD x1o, WORD y1, WORD y1o, WORD touchCount);
 
 		WORD getXO();
 		WORD getDX();
