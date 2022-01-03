@@ -17,4 +17,4 @@ namespace touchlib {
 	};
 }
 
-#endif /* TOUCHLIB_EVENTS_RELEASEEVENT_H_ */
+#endif /* TOUCHLIB_EVENTS_TOUCH_RELEASEEVENT_H_ */

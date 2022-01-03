@@ -8,21 +8,24 @@
 #ifndef TOUCHLIB_BOUNDINGBOX_H_
 #define TOUCHLIB_BOUNDINGBOX_H_
 
+#include "lib.h"
+
 namespace touchlib {
 	class BoundingBox {
+	private:
+		WORD left, top, right, bottom;
+
 	public:
-		int left, right, top, bottom;
+		BoundingBox(WORD x, WORD y, WORD w, WORD h);
 
-		BoundingBox(int x, int y, int w, int h);
-
-		bool contains(int x, int y) const;
-		void resizeToFit(int x, int y);
+		bool contains(WORD x, WORD y) const;
+		void resizeToFit(WORD x, WORD y);
 		void resizeToFit(BoundingBox const&);
 
-		int x();
-		int y();
-		int width();
-		int height();
+		WORD x();
+		WORD y();
+		WORD width();
+		WORD height();
 	};
 }
 

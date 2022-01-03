@@ -28,4 +28,4 @@ namespace touchlib {
 	};
 }
 
-#endif /* TOUCHLIB_EVENTS_DRAGEVENT_H_ */
+#endif /* TOUCHLIB_EVENTS_TOUCH_DRAGEVENT_H_ */

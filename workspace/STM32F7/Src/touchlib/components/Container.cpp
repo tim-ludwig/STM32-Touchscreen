@@ -6,6 +6,7 @@
  */
 
 #include <touchlib/components/Container.h>
+#include "Color.h"
 
 namespace touchlib {
 	Container::Container() :
@@ -13,7 +14,7 @@ namespace touchlib {
 
 	}
 
-	Container::Container(int _x, int _y, int _width, int _height) :
+	Container::Container(WORD _x, WORD _y, WORD _width, WORD _height) :
 			Component(_x, _y, _width, _height) {
 
 	}
@@ -30,10 +31,10 @@ namespace touchlib {
 
 	void Container::onEvent(TouchEvent& event) {
 		for (Component* c : components) {
-			if (!c->getBoundingBox().contains(event.getX(), event.getY()))
+			if (!(c->getBoundingBox().contains(event.getX(), event.getY())))
 				continue;
 
-			enteredOn.push_back(c);
+			//enteredOn.push_back(c);
 			c->onEvent(event);
 		}
 	}
@@ -41,7 +42,7 @@ namespace touchlib {
 	void Container::onEvent(DragEvent& event) {
 		if (enteredOn.empty()) {
 			for (Component* c : components) {
-				if (!c->getBoundingBox().contains(event.getX(), event.getY()))
+				if (!(c->getBoundingBox().contains(event.getX(), event.getY())))
 					continue;
 
 				c->onEvent(event);
@@ -56,7 +57,7 @@ namespace touchlib {
 	void Container::onEvent(ReleaseEvent& event) {
 		if (enteredOn.empty()) {
 			for (Component* c : components) {
-				if (!c->getBoundingBox().contains(event.getX(), event.getY()))
+				if (!(c->getBoundingBox().contains(event.getX(), event.getY())))
 					continue;
 
 				c->onEvent(event);
@@ -70,6 +71,7 @@ namespace touchlib {
 	}
 
 	void Container::show(cDevDisplayGraphic& lcd) {
+		lcd.drawRectangle(box.x(), box.y(), box.width(), box.height(), Color::White);
 		for (Component* c : components) {
 			c->show(lcd);
 		}

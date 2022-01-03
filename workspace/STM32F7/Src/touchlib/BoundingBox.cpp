@@ -8,15 +8,15 @@
 #include <touchlib/BoundingBox.h>
 
 namespace touchlib {
-	BoundingBox::BoundingBox(int _x, int _y, int _width, int _height) :
+	BoundingBox::BoundingBox(WORD _x, WORD _y, WORD _width, WORD _height) :
 			left(_x), top(_y), right(_x + _width), bottom(_y + _height) {
 	}
 
-	bool BoundingBox::contains(int _x, int _y) const {
+	bool BoundingBox::contains(WORD _x, WORD _y) const {
 		return (left <= _x && _x <= right) && (top <= _y && _y <= bottom);
 	}
 
-	void BoundingBox::resizeToFit(int _x, int _y) {
+	void BoundingBox::resizeToFit(WORD _x, WORD _y) {
 		if (_x < left)
 			left = _x;
 		else if (_x > right)
@@ -33,19 +33,19 @@ namespace touchlib {
 		resizeToFit(box.right, box.bottom);
 	}
 
-	int BoundingBox::x() {
+	WORD BoundingBox::x() {
 		return left;
 	}
 
-	int BoundingBox::y() {
+	WORD BoundingBox::y() {
 		return top;
 	}
 
-	int BoundingBox::width() {
+	WORD BoundingBox::width() {
 		return right - left;
 	}
 
-	int BoundingBox::height() {
+	WORD BoundingBox::height() {
 		return bottom - top;
 	}
 }

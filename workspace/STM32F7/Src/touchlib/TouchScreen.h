@@ -2,10 +2,10 @@
 #define TOUCHSCREEN_H_
 
 #include "lib.h"
-#include "touchlib/events/TouchScreenEvent.h"
-#include "touchlib/events/TouchEvent.h"
-#include "touchlib/events/DragEvent.h"
-#include "touchlib/events/ReleaseEvent.h"
+#include "touchlib/events/touch/TouchScreenEvent.h"
+#include "touchlib/events/touch/TouchEvent.h"
+#include "touchlib/events/touch/DragEvent.h"
+#include "touchlib/events/touch/ReleaseEvent.h"
 #include <list>
 
 namespace touchlib {

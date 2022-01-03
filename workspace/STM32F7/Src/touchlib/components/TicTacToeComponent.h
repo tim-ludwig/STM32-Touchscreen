@@ -20,7 +20,7 @@ namespace touchlib {
 		bool ai;
 
 	public:
-		TicTacToeComponent(TicTacToeGame&, bool ai, int w, int h);
+		TicTacToeComponent(TicTacToeGame&, bool ai, WORD w, WORD h);
 
 		virtual void onEvent(TouchEvent&);
 		virtual void onEvent(DragEvent&);

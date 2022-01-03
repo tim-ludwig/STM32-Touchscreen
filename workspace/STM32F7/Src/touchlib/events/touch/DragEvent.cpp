@@ -5,7 +5,7 @@
  *      Author: TIm Ludwig
  */
 
-#include <touchlib/events/DragEvent.h>
+#include <touchlib/events/touch/DragEvent.h>
 
 namespace touchlib {
 	DragEvent::DragEvent(WORD _x, WORD _xo, WORD _y, WORD _yo, WORD _x1, WORD _x1o, WORD _y1, WORD _y1o, WORD _touchCount) :

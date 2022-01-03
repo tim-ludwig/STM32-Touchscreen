@@ -18,7 +18,7 @@ namespace touchlib {
 
 	public:
 		Container();
-		Container(int x, int y, int w, int h);
+		Container(WORD x, WORD y, WORD w, WORD h);
 
 		void addComponent(Component*);
 		void removeComponent(Component*);

@@ -5,7 +5,7 @@
  *      Author: TIm Ludwig
  */
 
-#include <touchlib/events/TouchScreenEvent.h>
+#include <touchlib/events/touch/TouchScreenEvent.h>
 
 namespace touchlib {
 	TouchScreenEvent::TouchScreenEvent(WORD _x, WORD _y, WORD _x1, WORD _y1, WORD _touchCount) :

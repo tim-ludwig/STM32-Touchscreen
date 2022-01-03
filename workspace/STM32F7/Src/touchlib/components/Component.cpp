@@ -6,13 +6,14 @@
  */
 
 #include <touchlib/components/Component.h>
+#include <touchlib/events/action/ActionEvent.h>
 
 namespace touchlib {
 	Component::Component() :
 			Component(0, 0, 0, 0) {
 	}
 
-	Component::Component(int _x, int _y, int _width, int _height) :
+	Component::Component(WORD _x, WORD _y, WORD _width, WORD _height) :
 			box(_x, _y, _width, _height) {
 	}
 

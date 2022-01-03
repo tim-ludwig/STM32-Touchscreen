@@ -20,6 +20,7 @@ namespace touchlib {
 		INSTANCE = this;
 
 		touchCount = 0;
+		refresh();
 	}
 
 	TouchScreen::TouchScreen(WORD _width, WORD _height, cHwI2Cmaster::Device& _i2cTouch, cHwPort_N::PortId _portId, BYTE _pinId) :
