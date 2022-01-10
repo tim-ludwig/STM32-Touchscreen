@@ -17,10 +17,15 @@
 \usepackage{circuitikz}
 \usepackage{tikz-timing}
 \usepackage{bytefield}
+\usepackage{pgf-umlcd}
 \usepackage[backend=biber, style=ieee, citestyle=ieee]{biblatex}
 \usepackage{rotating}
 
 \bibliography{Projektarbeit.bib}
+
+\newcommand{\linkstyle}[1]{\color{blue}#1}
+\newcommand{\link}[2]{\href{#1}{\linkstyle{#2}}}
+\newcommand{\secref}[2]{\hyperref[sec:#1]{\linkstyle{\texttt{#2}}}}
 
 \begin{document}
 	    \begin{titlepage}
@@ -48,6 +53,22 @@
 	\listoffigures
 	\newpage
 	
+	\section{Einleitung}
+		Wir haben uns in diesem Projekt mit typischen Komponenten eines \emph{Touchscreen User Interfaces}
+		und der Umsetzung eines solchen Systems auf einem Mikrocontroller-Modul (dem STM32F769I-Disco Board) beschäftigt.
+		Im Folgenden werden die relevanten Komponenten des Mikrocontroller-Moduls beschrieben
+		und die Umsetzung eines \emph{Proof-of-Concept} Touch GUI dargestellt.
+		
+		\subsection{Aufgabenteilung}
+			Da wir nur ein Discovery-Board zur Verfügung hatten, haben wir das Projekt ursprünglich wie folgt aufgeteilt:\\
+			Funktionsweise relevanter Komponenten und Protokolle: \textsc{Neo Hornberger}\\
+			Aufbau und Implementation der Software: \textsc{Tim Ludwig}\\
+			Wie von einer Teamarbeit zu erwarten, waren diese Grenzen aber eher fließend.
+			Insbesondere das Verständnis einiger Protokolle ist auch für die Entwicklung der Software wichtig,
+			während eine \emph{zweite Meinung}\footnote{siehe auch  \link{https://rubberduckdebugging.com/}{Rubber Duck Debugging}}
+			natürlich auch hilfreich war.
+	
+	\section{}
 	\input{sections/lcd.tex}
 	\input{sections/i2c.tex}
 	\input{sections/touchscreen-physics.tex}

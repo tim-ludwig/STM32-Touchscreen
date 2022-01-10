@@ -1,0 +1,25 @@
+\subsection{Aufbau des Touchscreen UI's}
+	Nun also zur Software. Kern des Systems ist eine Abstraktion des Touchscreens auf dem Daughterboard:
+	Die Klasse \secref{touchscreen_class}{TouchScreen}.
+	
+	
+	\subsubsection{Die Klasse TouchScreen}\label{sec:touchscreen_class}
+		Diese Klasse bietet verschiedene Methoden, welche die Kommunikation mit dem Daughterboard vereinfachen.
+		Um das System nicht unnötig aus zu lasten ist sie in der Lage, einen GPIO-Interrupt zu behandeln.
+		Eine Instanz dieser Klasse speichert die aktuellen Touch-Koordinaten und löst ein \secref{EventSystem}{Event} aus, wenn eine Berührung erkannt wird.
+
+		\medskip
+		\texttt{refresh()} fragt über den I²C BUS die aktuellen Touch-Koordinaten ab und speichert diese.
+		Da das Koordinatensystem des TouchScreens nicht mit dem des LCD übereinstimmt, werden die über I²C gelesenen Koordinaten
+		in das Koordinatensystem des LCD transformiert.
+
+		\medskip
+		\texttt{interruptHandler()} behandelt einen GPIO-Interrupt auf dem eingestellten Port.
+		Diese Methode nutzt \texttt{refresh()} um die Koordinaten zu aktualisieren. Sie speichert die alten Werte lokal zwischen,
+		um das richtige \secref{EventSystem}{Event} zu erzeugen. Dann wird die \texttt{onEvent(\&TouchEvent)} Methode
+		des konfigurierten \secref{components}{Wurzelcontainers} aufgerufen.
+		
+	
+	\subsubsection{Komponenten und Container}\label{sec:components}
+	
+	\subsubsection{Event System}\label{sec:EventSystem}
