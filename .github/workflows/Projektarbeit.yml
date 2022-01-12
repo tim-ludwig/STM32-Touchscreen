@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout Git repository
         uses: actions/checkout@v2
-        with:
-          lfs: true
       - name: Compile LaTeX document
         run: |
           cd Projektarbeit/
