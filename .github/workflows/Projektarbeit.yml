@@ -20,7 +20,7 @@ jobs:
           cd Projektarbeit/
           make
       - name: Upload PDF document
-        uses: actions/upload-artifact
+        uses: actions/upload-artifact@v2
         with:
           name: Projektarbeit
           path: Projektarbeit/Projektarbeit.pdf
