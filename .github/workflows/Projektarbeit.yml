@@ -1,0 +1,27 @@
+name: Build Projektarbeit
+
+on:
+  push:
+    paths: 'Projektarbeit/**.tex'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: danteev/texlive
+
+    steps:
+      - name: Checkout Git repository
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Compile LaTeX document
+        run: |
+          cd Projektarbeit/
+          make
+      - name: Upload PDF document
+        uses: actions/upload-artifact
+        with:
+          name: Projektarbeit
+          path: Projektarbeit/Projektarbeit.pdf
+
