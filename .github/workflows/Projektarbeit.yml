@@ -2,7 +2,9 @@ name: Build Projektarbeit
 
 on:
   push:
-    paths: 'Projektarbeit/**.tex'
+    paths:
+      - 'Projektarbeit/**.tex'
+      - 'Projektarbeit/**.bib'
   workflow_dispatch:
 
 jobs:
