@@ -134,18 +134,36 @@
 	\end{frame}
 
 	\section{I²C}
-	\begin{frame}{Ein Demotitel}
+	\begin{frame}{Der I²C BUS}
 		
 	\end{frame}
 	
 	\section{Software}
-	\begin{frame}{Ein Demotitel}
+	\begin{frame}{Planung \& Entwurfsziele}
+		Implementation typischer Touchscreen GUI Komponenten in C++.
 		
+		\begin{itemize}
+			\item<2-> Radio Button
+			\item<3-> Toggle Switch
+			\item<4-> Slider
+			\item<5-> Button
+			\item<6-> Check Box
+		\end{itemize}
+		\bigskip
+		\begin{itemize}
+			\item<7-> leicht benutzbar \only<10->{$\Rightarrow$ orientiert an typischen Design Guidelines \cite{material-components}}
+			\item<8-> leicht programmierbar \only<11->{$\Rightarrow$ viel Abstraktion, wenig Boilerplate}
+			\item<9-> möglichst Ressourcen schonend \only<12->{$\Rightarrow$ Abfragen und zeichnen auf einer \emph{need-to-know} Basis}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{}
 	\end{frame}
 
 	\section{Quellen}
 	\begin{frame}{Quellen}
 		\nocite{ts-holzinger}
+		\nocite{stm32_refManual}
 		\printbibliography
 	\end{frame}
 \end{document}
