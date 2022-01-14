@@ -28,5 +28,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Präsentation
-          path: TeX/Präsentation.pdf
+          path: TeX/Presentation.pdf
 
