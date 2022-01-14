@@ -1,4 +1,4 @@
-name: Build Projektarbeit
+name: Build TeX Files
 
 on:
   push:
@@ -19,9 +19,14 @@ jobs:
         run: |
           cd TeX/
           make
-      - name: Upload PDF document
+      - name: Upload PDF document (Projektarbeit)
         uses: actions/upload-artifact@v2
         with:
           name: Projektarbeit
-          path: Projektarbeit/Projektarbeit.pdf
+          path: TeX/Projektarbeit.pdf
+      - name: Upload PDF Document (Präsentation)
+        uses: actions/upload-artifact@v2
+        with:
+          name: Präsentation
+          path: TeX/Präsentation.pdf
 
