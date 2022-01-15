@@ -1,0 +1,26 @@
+\subsection{I²C}
+
+% I²C Abkürzung erklären
+
+I²C basiert auf einem Bussystem.
+Dies bedeutet, dass alle Komponenten, die miteinander kommunizieren sollen, an einer oder mehreren gemeinsamen Leitungen anliegen.
+Der I²C-Bus besteht aus zwei Leitungen.
+Die Datenleitung wird \texttt{SDA}\footnote{\textbf{SDA} \textit{serial data line}} und die Taktleitung wird \texttt{SCL}\footnote{\textbf{SCL} \textit{serial clock line}} genannt.
+
+Alle Daten, die versendet werden, sind in 8-Bit-Wörter (Bytes) aufgeteilt.
+Jedes Bit wird nacheinander auf die Datenleitung geschrieben.
+
+Um eine bestimmte Komponenten über den Bus ansprechen zu können, benötigt jede Komponente eine eindeutige Adresse, welche von den Herstellern zugewiesen wird.
+
+Zudem wird zur Kommunikation das \texttt{Controller/Target}-Prinzip verwendet.
+Die sogenannten \texttt{Controller} sind Komponenten, die eine Kommunikation mit einer anderen Komponente initiieren können.
+Sogenannte \texttt{Targets} sind Komponenten, die von einem \texttt{Controller} angesprochen werden können.
+Der \texttt{Controller} einer Kommunikation entscheidet außerdem, ob er einem \texttt{Target} Daten senden oder bestimmte Daten von diesem anfordern möchte.
+Während der Kommunikation generiert jener den Takt, welcher über die Taktleitung verteilt wird.
+
+Im Weiteren wird davon ausgegangen, dass nur ein Controller am Bus angeschlossen ist.
+
+Um eine Kommunikation zu starten, sendet der \texttt{Controller} eine Startanweisung, die 7-Bit Adresse des \texttt{Targets} und ein Bit, welches beschreibt, ob der \texttt{Controller} Daten schreiben oder anfordern möchte.
+Eine Startanweisung ist definiert als eine senkende Flanke auf der Datenleitung, während die Taktleitung auf \texttt{HIGH} steht.
+Wenn der \texttt{Target} seine Adresse wiedererkannt hat, bestätigt er den Aufbau der Kommunikation durch ein sogenanntes \texttt{Acknowledge}.
+Damit der Empfang eines Bytes bestätigen kann, gibt der Sender die Datenleitung frei und der Empfänger setzt diese auf \texttt{LOW}.

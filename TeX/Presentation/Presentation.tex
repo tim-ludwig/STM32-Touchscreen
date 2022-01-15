@@ -25,6 +25,8 @@
 \usetheme{Madrid}
 \usecolortheme{whale}
 
+\newcounter{listnum}
+
 \title{Mikrocontroller Touchscreen GUI}
 \author{Neo Hornberger, Tim Ludwig}
 \date{21.01.2022}
@@ -134,8 +136,56 @@
 	\end{frame}
 
 	\section{I²C}
-	\begin{frame}{Der I²C BUS}
+	\begin{frame}{Der I²C-Bus}
+		\begin{itemize}
+			\item Bussystem bestehend aus zwei Leitungen (\texttt{SDA}, \texttt{SCL})
+			\item Aufteilung der Daten in Bytes (8-Bit-Wörter)
+			\item Komponenten besitzen eine 7-Bit Adresse
+			\item Controller/Target-Prinzip
+			\item nach jedem gesendeten Byte bestätigt der Empfänger dies
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Kommunikationsstart}
+		\texttt{Controller}:
+		\begin{enumerate}
+			\item Startanweisung (\texttt{START})
+			\item 7-Bit Adresse
+			\item R/$\overline{\mbox{W}}$-Bit
+			
+			\setcounter{listnum}{\value{enumi}}
+		\end{enumerate}
+		\texttt{Target}:
+		\begin{enumerate}
+			\setcounter{enumi}{\value{listnum}}
+			
+			\item Bestätigung (\texttt{ACK})
+		\end{enumerate}
+	\end{frame}
+	\begin{frame}{Übertragung von Daten}
+		Sender:
+		\begin{enumerate}
+			\item 8-Bit Wort
+			
+			\setcounter{listnum}{\value{enumi}}
+		\end{enumerate}
 		
+		Empfänger:
+		\begin{enumerate}
+			\setcounter{enumi}{\value{listnum}}
+			
+			\item Bestätigung (\texttt{ACK})
+		\end{enumerate}
+		
+		\vfill
+		Wdh. bis alle Bytes versendet sind.
+	\end{frame}
+	\begin{frame}{Kommunikationsende}
+		\texttt{Controller}:
+		\begin{enumerate}[a]
+			\item Stopanweisung (\texttt{STOP})
+			\item wiederholte Startanweisung (\texttt{repeated START})
+		\end{enumerate}
 	\end{frame}
 	
 	\section{Software}
