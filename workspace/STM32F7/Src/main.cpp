@@ -60,7 +60,7 @@ void redraw(ActionEvent& event) {
 }
 
 void uiDemo() {
-	Slider slider { 85, 20, 300, 50, true, 15, 0.0 };
+	Slider slider { 85, 20, 300 };
 	touchScreen.getRootContainer()->addComponent(&slider);
 
 	slider.addEventListener(redraw);

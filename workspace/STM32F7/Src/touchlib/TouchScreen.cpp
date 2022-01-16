@@ -57,8 +57,13 @@ namespace touchlib {
 
 		// this read looks weird, because it is transforming the touchscreen's coordinate
 		// system to the lcd's coordinate system.
+		//*
 		x = TWO_BYTE_WORD(data[P1_YH] & 0x0F, data[P1_YL]);
 		y = height - 1 - TWO_BYTE_WORD(data[P1_XH] & 0x0F, data[P1_XL]);
+		/*/
+		x = TWO_BYTE_WORD(data[P1_XH] & 0x0F, data[P1_XL]);
+		y = TWO_BYTE_WORD(data[P1_YH] & 0x0F, data[P1_YL]);
+		//*/
 
 		x1 = TWO_BYTE_WORD(data[P2_YH] & 0x0F, data[P2_YL]);
 		y1 = height - 1 - TWO_BYTE_WORD(data[P2_XH] & 0x0F, data[P2_XL]);

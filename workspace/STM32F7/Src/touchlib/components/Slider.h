@@ -17,15 +17,16 @@ namespace touchlib {
 
 	class Slider: public Component {
 	private:
-		WORD radius;
+		static const WORD activeHeight = 6, inactiveHeight = 4, radius = 20;
+
 		double position;
-		bool horizontal;
 
 		std::list<std::function<void(SliderEvent&)>> listeners;
 
-		void setPosition(WORD x, WORD y);
+		void setPosition(WORD x);
 	public:
-		Slider(WORD x, WORD y, WORD w, WORD h, bool horizontal, WORD r, double pos);
+		Slider(WORD x, WORD y, WORD w);
+		Slider(WORD x, WORD y, WORD w, double pos);
 
 		double getPosition();
 
