@@ -34,39 +34,25 @@ namespace touchlib {
 			if (!(c->getBoundingBox().contains(event.getX(), event.getY())))
 				continue;
 
-			//enteredOn.push_back(c);
 			c->onEvent(event);
 		}
 	}
 
 	void Container::onEvent(DragEvent& event) {
-		if (enteredOn.empty()) {
 			for (Component* c : components) {
 				if (!(c->getBoundingBox().contains(event.getX(), event.getY())))
 					continue;
 
 				c->onEvent(event);
 			}
-		} else {
-			for (Component* c : enteredOn) {
-				c->onEvent(event);
-			}
-		}
 	}
 
 	void Container::onEvent(ReleaseEvent& event) {
-		if (enteredOn.empty()) {
 			for (Component* c : components) {
 				if (!(c->getBoundingBox().contains(event.getX(), event.getY())))
 					continue;
 
 				c->onEvent(event);
-			}
-		} else {
-			for (Component* c : enteredOn) {
-				c->onEvent(event);
-			}
-			enteredOn.clear();
 		}
 	}
 

@@ -49,6 +49,7 @@ void tictactoe(void) {
 		lcd.printf(1, 1, 6, "%c won!", winner);
 	}
 
+	cSystem::delayMilliSec(10);
 	lcd.refresh();
 }
 
@@ -111,7 +112,7 @@ int main(void) {
 	//*
 	uiDemo();
 	/*/
-	 tictactoe();
-	 //*/
+	tictactoe();
+	//*/
 }
 
