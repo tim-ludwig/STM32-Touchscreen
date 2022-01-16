@@ -10,13 +10,13 @@
 #include "Color.h"
 
 namespace touchlib {
-	Slider::Slider(WORD _x, WORD _y, WORD _width) :
-			Slider(_x, _y, _width, 0.0) {
+	Slider::Slider(WORD _x, WORD _y, WORD _width, ColorTheme& _theme) :
+			Slider(_x, _y, _width, 0.0, _theme) {
 
 	}
 
-	Slider::Slider(WORD _x, WORD _y, WORD _width, double _pos) :
-			Component(_x, _y, _width, radius), position(_pos) {
+	Slider::Slider(WORD _x, WORD _y, WORD _width, double _pos, ColorTheme& _theme) :
+			Component(_x, _y, _width, 2 * radius), position(_pos), theme(_theme) {
 	}
 
 	double Slider::getPosition() {
@@ -56,9 +56,9 @@ namespace touchlib {
 	void Slider::show(cDevDisplayGraphic& lcd) {
 		WORD x = box.x() + radius, y = box.y() + radius;
 
-		lcd.drawRectangle(x, y - activeHeight / 2, (box.width() - 2 * radius) * position, activeHeight, Color::Blue);
+		lcd.drawRectangle(x, y - activeHeight / 2, (box.width() - 2 * radius) * position, activeHeight, theme.lightPrimary);
 		lcd.drawRectangle(x + (box.width() - 2 * radius) * position, y - inactiveHeight / 2, (box.width() - 2 * radius) * (1 - position), inactiveHeight, Color::Grey);
 
-		lcd.drawCircle(x + (box.width() - 2 * radius) * position, y, radius, Color::DarkGrey);
+		lcd.drawCircle(x + (box.width() - 2 * radius) * position, y, radius, theme.primary);
 	}
 }

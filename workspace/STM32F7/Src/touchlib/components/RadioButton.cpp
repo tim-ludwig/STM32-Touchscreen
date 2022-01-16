@@ -10,13 +10,13 @@
 #include <Color.h>
 
 namespace touchlib {
-	RadioButton::RadioButton(WORD _x, WORD _y) :
-			RadioButton(_x, _y, false) {
+	RadioButton::RadioButton(WORD _x, WORD _y, ColorTheme& _theme) :
+			RadioButton(_x, _y, false, _theme) {
 
 	}
 
-	RadioButton::RadioButton(WORD _x, WORD _y, bool _deselectable) :
-			Component(_x, _y, 28, 28), deselectable(_deselectable), state(false) {
+	RadioButton::RadioButton(WORD _x, WORD _y, bool _deselectable, ColorTheme& _theme) :
+			Component(_x, _y, 2 * radius, 2 * radius), deselectable(_deselectable), state(false), theme(_theme) {
 
 	}
 
@@ -46,9 +46,10 @@ namespace touchlib {
 	}
 
 	void RadioButton::show(cDevDisplayGraphic& lcd) {
-		lcd.drawCircle(box.x() + 14, box.y() + 14, 14, Color::Grey);
+		lcd.drawCircle(box.x() + radius, box.y() + radius, radius, state ? theme.primary : Color::DarkGrey);
+		lcd.drawCircle(box.x() + radius, box.y() + radius, radius - 3, state ? theme.lightPrimary : Color::Grey);
 
 		if (state)
-			lcd.drawCircle(box.x() + 14, box.y() + 14, 9, Color::DarkGrey);
+			lcd.drawCircle(box.x() + radius, box.y() + radius, radius / 2, theme.primary);
 	}
 }

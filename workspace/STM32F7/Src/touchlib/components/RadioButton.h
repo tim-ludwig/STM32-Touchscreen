@@ -10,6 +10,7 @@
 
 #include <touchlib/components/Component.h>
 #include <touchlib/logic/RadioButtonGroup.h>
+#include <touchlib/ColorTheme.h>
 #include <functional>
 #include <vector>
 
@@ -18,13 +19,16 @@ namespace touchlib {
 
 	class RadioButton: public Component {
 	private:
+		static const WORD radius = 15;
+
 		bool state, deselectable;
+		ColorTheme& theme;
 
 		std::vector<std::function<void(RadioButtonEvent&)>> listeners;
 
 	public:
-		RadioButton(WORD x, WORD y);
-		RadioButton(WORD x, WORD y, bool);
+		RadioButton(WORD x, WORD y, ColorTheme&);
+		RadioButton(WORD x, WORD y, bool, ColorTheme&);
 
 		bool getState();
 

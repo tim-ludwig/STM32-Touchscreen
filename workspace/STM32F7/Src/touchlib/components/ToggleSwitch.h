@@ -9,6 +9,7 @@
 #define TOUCHLIB_COMPONENTS_TOGGLESWITCH_H_
 
 #include <touchlib/components/Component.h>
+#include <touchlib/ColorTheme.h>
 #include <list>
 #include <functional>
 
@@ -17,15 +18,15 @@ namespace touchlib {
 
 	class ToggleSwitch: public Component {
 	private:
+		static const WORD width = 54, radius = 15, height = 21;
+
 		bool state;
-		WORD colorActive, colorInactive, colorHandle;
+		ColorTheme& theme;
 
 		std::list<std::function<void(ToggleSwitchEvent&)>> listeners;
 
 	public:
-		ToggleSwitch(WORD x, WORD y);
-		ToggleSwitch(WORD x, WORD y, WORD cActive);
-		ToggleSwitch(WORD x, WORD y, WORD cActive, WORD cInactive, WORD cHandle);
+		ToggleSwitch(WORD x, WORD y, ColorTheme&);
 
 		bool getState();
 

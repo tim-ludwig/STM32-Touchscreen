@@ -60,14 +60,16 @@ void redraw(ActionEvent& event) {
 }
 
 void uiDemo() {
-	Slider slider { 85, 20, 300 };
+	lcd.setZoom(2);
+
+	Slider slider { 85, 20, 300, indigo };
 	touchScreen.getRootContainer()->addComponent(&slider);
 
 	slider.addEventListener(redraw);
 
-	ToggleSwitch tSwitch1 {  85, 100, Color::LightBlue};
-	ToggleSwitch tSwitch2 { 185, 100, Color::Blue};
-	ToggleSwitch tSwitch3 { 285, 100, Color::Green};
+	ToggleSwitch tSwitch1 {  85, 100, indigo};
+	ToggleSwitch tSwitch2 { 185, 100, indigo};
+	ToggleSwitch tSwitch3 { 285, 100, indigo};
 
 	touchScreen.getRootContainer()->addComponent(&tSwitch1);
 	touchScreen.getRootContainer()->addComponent(&tSwitch2);
@@ -77,9 +79,9 @@ void uiDemo() {
 	tSwitch2.addEventListener(redraw);
 	tSwitch3.addEventListener(redraw);
 
-	RadioButton rBtn1 { 85, 150 };
-	RadioButton rBtn2 { 135, 150 };
-	RadioButton rBtn3 { 185, 150 };
+	RadioButton rBtn1 { 85, 150, indigo };
+	RadioButton rBtn2 { 135, 150, indigo };
+	RadioButton rBtn3 { 185, 150, indigo };
 
 	RadioButtonGroup grp;
 	grp.addButton(&rBtn1);

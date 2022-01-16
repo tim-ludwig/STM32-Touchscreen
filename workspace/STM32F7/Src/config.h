@@ -16,6 +16,7 @@
 
 //*******************************************************************
 #include "touchlib/TouchScreen.h"
+#include "touchlib/ColorTheme.h"
 
 //*******************************************************************
 cSystem sys;
@@ -149,6 +150,8 @@ cHwDisp_OTM8009Aram disp       ( hwDSI,lcdResetPin,
                                  cHwDisp_OTM8009A::LANDSCAPE_90,
                                  fontFont_8x12, 2 );
 cDevDisplayGraphic  lcd        ( disp );
+
+touchlib::ColorTheme indigo{ (WORD) RGB2COLOR(0x3F, 0x51, 0xB5), (WORD) RGB2COLOR(0x9F, 0xA8, 0xDA) };
 
 //*******************************************************************
 // Touch
