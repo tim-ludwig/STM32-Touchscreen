@@ -147,45 +147,68 @@
 	\end{frame}
 	
 	\begin{frame}{Kommunikationsstart}
-		\texttt{Controller}:
-		\begin{enumerate}
-			\item Startanweisung (\texttt{START})
-			\item 7-Bit Adresse
-			\item R/$\overline{\mbox{W}}$-Bit
-			
-			\setcounter{listnum}{\value{enumi}}
-		\end{enumerate}
-		\texttt{Target}:
-		\begin{enumerate}
-			\setcounter{enumi}{\value{listnum}}
-			
-			\item Bestätigung (\texttt{ACK})
-		\end{enumerate}
+		\begin{columns}
+			\begin{column}{0.45\textwidth}
+				\texttt{Controller}:
+				\begin{enumerate}
+					\item Startanweisung (\texttt{START})
+					\item 7-Bit Adresse
+					\item R/$\overline{\mbox{W}}$-Bit
+					
+					\setcounter{listnum}{\value{enumi}}
+				\end{enumerate}
+				\texttt{Target}:
+				\begin{enumerate}
+					\setcounter{enumi}{\value{listnum}}
+					
+					\item Bestätigung (\texttt{ACK})
+				\end{enumerate}
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				\input{../Images/I2C_Communication_START.tikz}
+			\end{column}
+		\end{columns}
+		
 	\end{frame}
 	\begin{frame}{Übertragung von Daten}
-		Sender:
-		\begin{enumerate}
-			\item 8-Bit Wort
-			
-			\setcounter{listnum}{\value{enumi}}
-		\end{enumerate}
-		
-		Empfänger:
-		\begin{enumerate}
-			\setcounter{enumi}{\value{listnum}}
-			
-			\item Bestätigung (\texttt{ACK})
-		\end{enumerate}
-		
-		\vfill
-		Wdh. bis alle Bytes versendet sind.
+		\begin{columns}
+			\begin{column}{0.45\textwidth}
+				Sender:
+				\begin{enumerate}
+					\item 8-Bit Wort
+					
+					\setcounter{listnum}{\value{enumi}}
+				\end{enumerate}
+				
+				Empfänger:
+				\begin{enumerate}
+					\setcounter{enumi}{\value{listnum}}
+					
+					\item Bestätigung (\texttt{ACK})
+				\end{enumerate}
+				
+				\vspace{5ex}
+				Wdh. bis alle Bytes versendet sind.
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				\input{../Images/I2C_Communication_DATA.tikz}
+			\end{column}
+		\end{columns}
 	\end{frame}
 	\begin{frame}{Kommunikationsende}
-		\texttt{Controller}:
-		\begin{enumerate}[a]
-			\item Stopanweisung (\texttt{STOP})
-			\item wiederholte Startanweisung (\texttt{repeated START})
-		\end{enumerate}
+		\begin{columns}
+			\begin{column}{0.55\textwidth}
+				\texttt{Controller}:
+				\begin{enumerate}[a]
+					\item Stopanweisung (\texttt{STOP})
+					\item wiederholte Startanweisung (\texttt{repeated START})
+				\end{enumerate}
+			\end{column}
+			\begin{column}{0.4\textwidth}
+				\input{../Images/I2C_Communication_STOP.tikz}
+				\input{../Images/I2C_Communication_repSTART.tikz}
+			\end{column}
+		\end{columns}
 	\end{frame}
 	
 	\section{Software}
