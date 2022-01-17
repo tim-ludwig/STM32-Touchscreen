@@ -14,10 +14,11 @@
 \bibliography{../Bibliography.bib}
 
 \begin{document}
-	\maketitle	
-	\frame{\tableofcontents}
+	\maketitle
 	
 	\section{Touchscreen Hardware}
+	\frame{\tableofcontents[currentsection]}
+	
 	\begin{frame}{Resistive Touchscreens}
 		\begin{columns}
 			\begin{column}{0.4\textwidth}
@@ -116,6 +117,8 @@
 	\end{frame}
 
 	\section{I²C}
+	\frame{\tableofcontents[currentsection]}
+	
 	\begin{frame}{Der I²C-Bus}
 		\begin{itemize}
 			\item Bussystem bestehend aus zwei Leitungen (\texttt{SDA}, \texttt{SCL})
@@ -148,8 +151,8 @@
 				\input{../Images/I2C_Communication_START.tikz}
 			\end{column}
 		\end{columns}
-		
 	\end{frame}
+
 	\begin{frame}{Übertragung von Daten}
 		\begin{columns}
 			\begin{column}{0.45\textwidth}
@@ -175,6 +178,7 @@
 			\end{column}
 		\end{columns}
 	\end{frame}
+
 	\begin{frame}{Kommunikationsende}
 		\begin{columns}
 			\begin{column}{0.55\textwidth}
@@ -192,25 +196,42 @@
 	\end{frame}
 	
 	\section{Software}
+	\frame{\tableofcontents[currentsection]}
+	
 	\begin{frame}{Planung \& Entwurfsziele}
 		Implementation typischer Touchscreen GUI Komponenten in C++.
 		
 		\begin{itemize}
-			\item<2-> Radio Button
-			\item<3-> Toggle Switch
-			\item<4-> Slider
-			\item<5-> Button
-			\item<6-> Check Box
+			\item Radio Button
+			\item Toggle Switch
+			\item Slider
+			\item Button
+			\item Check Box
 		\end{itemize}
+		\pause
 		\bigskip
 		\begin{itemize}
-			\item<7-> leicht benutzbar \only<10->{$\Rightarrow$ orientiert an typischen Design Guidelines \cite{material-components}}
-			\item<8-> leicht programmierbar \only<11->{$\Rightarrow$ viel Abstraktion, wenig Boilerplate}
-			\item<9-> möglichst Ressourcen schonend \only<12->{$\Rightarrow$ Abfragen und zeichnen auf einer \emph{need-to-know} Basis}
+			\item leicht benutzbar $\Rightarrow$ orientiert an typischen Design Guidelines \cite{material-components} \pause
+			\item leicht programmierbar $\Rightarrow$ viel Abstraktion, wenig Boilerplate \pause
+			\item möglichst Ressourcen schonend $\Rightarrow$ Abfragen und zeichnen auf einer \emph{need-to-know} Basis
 		\end{itemize}
 	\end{frame}
 
-	\begin{frame}{}
+	\begin{frame}{Komponenten}
+		\centering\input{../Images/Components.tikz}
+	\end{frame}
+
+	\begin{frame}{Das Event System}
+		\begin{columns}
+			\begin{column}{0.6\textwidth}
+				\input{../Images/EventCallHierarchy.tikz}
+			\end{column}
+			\begin{column}{0.4\textwidth}
+				\pause
+				Berührung außerhalb der \emph{Bounding-Box} von \texttt{Slider}.
+			\end{column}
+		\end{columns}
+		
 	\end{frame}
 
 	\section{Quellen}

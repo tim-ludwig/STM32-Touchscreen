@@ -1,0 +1,15 @@
+\begin{tikzpicture}[y=-1cm]
+	\node[draw](root){RootContainer};
+	\node[draw=gray,color=gray,below right=1em of root,anchor=north west](slider){Slider};
+	\node[draw=gray,color=gray,below right=1em of slider,anchor=north west](listener1){Listener 1};
+	\node[draw,below left=6ex and 0em of slider,anchor=north west](switch){Switch};
+	\node[draw,below right=1em of switch,anchor=north west](listener2){Listener 2};
+	\node[draw,below left=1ex and 0em of listener2,anchor=north west](listener3){Listener 3};
+	
+	
+	\draw[-latex,color=gray] (root.south) |- (slider);
+	\draw[-latex,color=gray] (slider.south) |- (listener1);
+	\draw[-latex] (root.south) |- (switch);
+	\draw[-latex] (switch.south) |- (listener2);
+	\draw[-latex] (switch.south) |- (listener3);
+\end{tikzpicture}

@@ -1,0 +1,15 @@
+\begin{tikzpicture}[sibling distance=7em,
+	every node/.style = {shape=rectangle, rounded corners,
+		draw, align=center}]
+	\node {TouchScreen}
+		child { node {RootContainer}
+			child { node {Switch}}
+			child { node {Switch}}
+			child { node {Container}
+				child { node {RadioButton}}
+				child { node {RadioButton}}
+				child { node {RadioButton}}
+			}
+			child { node {Slider}}
+		};
+\end{tikzpicture}
