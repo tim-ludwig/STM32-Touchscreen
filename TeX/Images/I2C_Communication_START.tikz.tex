@@ -1,6 +1,13 @@
 \begin{figure}
 	\begin{tikztimingtable}
-		SDA & H L 7{D{}} D L .25H ; [dotted] .5H \\
-		SCL & 1.75H ; [!wscale=.5!] 9{L H} ; .5L ; [dotted] .5L \\
+		% width=11.375
+		%
+		SDA & H L E 6{D{}} E L .375H ; [dotted] h \\
+		SCL & 1.5H .875C {c N(c1) c} {c N(c2) c} {c N(c3) c} {c N(c4) c} {c N(c5) c} {c N(c6) c} {c N(c7) c} {c N(c8) c} {c N(c9) c} ; [dotted] l \\
+		%
+		\begin{extracode}[every node/.style={font=\tiny}]
+			\foreach \i in {1,...,9}
+				\node[left=-.345em of c\i.mid](\i){\i};
+		\end{extracode}
 	\end{tikztimingtable}
 \end{figure}
