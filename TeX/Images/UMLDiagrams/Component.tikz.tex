@@ -1,0 +1,10 @@
+\begin{abstractclass}[text width=11cm]{Component}{0, 0}
+	\attribute{\# box: BoundingBox}
+	
+	\operation{+ Component(x: WORD, y: WORD, w: WORD, h: WORD)}
+	\operation{+ getBoundingBox(): BoundingBox\&}
+	\operation[0]{+ onEvent(event: DragEvent\&): void}
+	\operation[0]{+ onEvent(event: TouchEvent\&): void}
+	\operation[0]{+ onEvent(event: ReleaseEvent\&): void}
+	\operation[0]{+ show(display: cDevDispalyGraphic\&): void}
+\end{abstractclass}

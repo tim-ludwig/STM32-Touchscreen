@@ -1,0 +1,10 @@
+\begin{class}[text width=11cm]{RadioButton}{0, -2.5}
+	\inherit{Component}
+	
+	\attribute{- state: bool}
+	\attribute{- deselectable: bool}
+	\attribute{- listeners: list<function<void(RadioButtonEvent\&)>\relax>}
+	
+	\operation{+ getState(): bool}
+	\operation{+ addEventListener(listener: function<void(RadioButtonEvent\&)>): void}
+\end{class}

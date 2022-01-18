@@ -1,0 +1,16 @@
+\begin{class}[text width=11cm]{TouchScreen}{0, 0}
+	\attribute{- x, y: WORD}
+	\attribute{- touchCount: WORD}
+	\attribute{- width, height: WORD}
+	\attribute{- i2cTouch: cHwI2Cmaster::Device\&}
+	\attribute{- interruptPort: cHwPort\_N::PortId}
+	\attribute{+ interruptPin: BYTE}
+	\attribute{+ rootContainer: Container*}
+	\attribute{+ \emph{static} INSTANCE: TouchScreen*}
+	
+	\operation{+ refresh(): void}
+	\operation{+ setInterruptMode(mode: bool): void}
+	\operation{+ interruptHandler(): void}
+	\operation{+ setRootContainer(c: Container*): void}
+	\operation{+ getRootContainer(): Container*}
+\end{class}

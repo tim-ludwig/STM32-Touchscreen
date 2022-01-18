@@ -1,0 +1,9 @@
+\begin{class}[text width=11cm]{ToggleSwitch}{0, -2.5}
+	\inherit{Component}
+	
+	\attribute{- state: bool}
+	\attribute{- listeners: list<function<void(ToggleSwitchEvent\&)>\relax>}
+	
+	\operation{+ getState(): bool}
+	\operation{+ addEventListener(listener: function<void(ToggleSwitchEvent\&)>): void}
+\end{class}

@@ -1,0 +1,12 @@
+\begin{class}[text width=11cm]{BoundingBox}{0, 0}
+	\attribute{- left, top, right, bottom: WORD}
+	
+	\operation{+ BoundingBox(x: WORD, y: WORD, width: WORD, height: WORD)}
+	\operation{+ contains(x: WORD, y: WORD): bool}
+	\operation{+ resizeToFit(x: WORD, y: WORD): void}
+	\operation{+ resizeToFit(box: BoundingBox\&): void}
+	\operation{+ x(): WORD}
+	\operation{+ y(): WORD}
+	\operation{+ width(): WORD}
+	\operation{+ height(): WORD}
+\end{class}

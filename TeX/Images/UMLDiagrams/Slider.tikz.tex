@@ -1,0 +1,10 @@
+\begin{class}[text width=11cm]{Slider}{0, -2.5}
+	\inherit{Component}
+	
+	\attribute{- position: double}
+	\attribute{- listeners: list<function<void(SliderEvent\&)>\relax>}
+	
+	\operation{- setPosition(x: WORD): void}
+	\operation{+ getPosition(): double}
+	\operation{+ addEventListener(listener: function<void(SliderEvent\&)>): void}
+\end{class}

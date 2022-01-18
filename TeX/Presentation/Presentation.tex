@@ -212,36 +212,16 @@
 	
 	\subsection{Klassen}
 	\begin{frame}{BoundingBox}
-			\centering
+		\centering
 		\begin{tikzpicture}
-			\begin{class}[text width=11cm]{BoundingBox}{0, 0}
-				\attribute{- left, top, right, bottom: WORD}
-				
-				\operation{+ BoundingBox(x: WORD, y: WORD, width: WORD, height: WORD)}
-				\operation{+ contains(x: WORD, y: WORD): bool}
-				\operation{+ resizeToFit(x: WORD, y: WORD): void}
-				\operation{+ resizeToFit(box: BoundingBox\&): void}
-				\operation{+ x(): WORD}
-				\operation{+ y(): WORD}
-				\operation{+ width(): WORD}
-				\operation{+ height(): WORD}
-			\end{class}
+			\input{../Images/UMLDiagrams/BoundingBox.tikz}
 		\end{tikzpicture}
 	\end{frame}
 	
-	\begin{frame}{Komponenten}
+	\begin{frame}{Component}
 		\centering
 		\begin{tikzpicture}
-			\begin{abstractclass}[text width=11cm]{Component}{0, 0}
-				\attribute{\# box: BoundingBox}
-				
-				\operation{+ Component(x: WORD, y: WORD, w: WORD, h: WORD)}
-				\operation{+ getBoundingBox(): BoundingBox\&}
-				\operation[0]{+ onEvent(event: DragEvent\&): void}
-				\operation[0]{+ onEvent(event: TouchEvent\&): void}
-				\operation[0]{+ onEvent(event: ReleaseEvent\&): void}
-				\operation[0]{+ show(display: cDevDispalyGraphic\&): void}
-			\end{abstractclass}
+			\input{../Images/UMLDiagrams/Component.tikz.tex}
 		\end{tikzpicture}
 	\end{frame}
 
@@ -251,14 +231,7 @@
 			\begin{abstractclass}[text width=3cm]{Component}{0, 0}
 			\end{abstractclass}
 			
-			\begin{class}[text width=11cm]{Container}{0, -2.5}
-				\inherit{Component}
-				
-				\attribute{- compontents: list<Component*>}
-				
-				\operation{+ addComponent(comp: Component*): void}
-				\operation{+ removeComponent(comp: Component*): void}
-			\end{class}
+			\input{../Images/UMLDiagrams/Container.tikz}
 		\end{tikzpicture}
 	\end{frame}
 
@@ -270,16 +243,7 @@
 			
 			\node[right=of Component] (image) {\includegraphics[height=2cm]{../Images/Slider.png}};
 			
-			\begin{class}[text width=11cm]{Slider}{0, -2.5}
-				\inherit{Component}
-				
-				\attribute{- position: double}
-				\attribute{- listeners: list<function<void(SliderEvent\&)>\relax>}
-				
-				\operation{- setPosition(x: WORD): void}
-				\operation{+ getPosition(): double}
-				\operation{+ addEventListener(listener: function<void(SliderEvent\&)>): void}
-			\end{class}
+			\input{../Images/UMLDiagrams/Slider.tikz}
 		\end{tikzpicture}
 	\end{frame}
 
@@ -291,15 +255,7 @@
 			
 			\node[right=of Component] (image) {\includegraphics[height=2cm]{../Images/Switch.png}};
 			
-			\begin{class}[text width=11cm]{ToggleSwitch}{0, -2.5}
-				\inherit{Component}
-				
-				\attribute{- state: bool}
-				\attribute{- listeners: list<function<void(ToggleSwitchEvent\&)>\relax>}
-				
-				\operation{+ getState(): bool}
-				\operation{+ addEventListener(listener: function<void(ToggleSwitchEvent\&)>): void}
-			\end{class}
+			\input{../Images/UMLDiagrams/ToggleSwitch.tikz}
 		\end{tikzpicture}
 	\end{frame}
 
@@ -311,43 +267,19 @@
 			
 			\node[right=of Component] (image) {\includegraphics[height=2cm]{../Images/RadioButton.png}};
 			
-			\begin{class}[text width=11cm]{RadioButton}{0, -2.5}
-				\inherit{Component}
-				
-				\attribute{- state: bool}
-				\attribute{- deselectable: bool}
-				\attribute{- listeners: list<function<void(RadioButtonEvent\&)>\relax>}
-				
-				\operation{+ getState(): bool}
-				\operation{+ addEventListener(listener: function<void(RadioButtonEvent\&)>): void}
-			\end{class}
+			\input{../Images/UMLDiagrams/RadioButton.tikz}
 		\end{tikzpicture}
 	\end{frame}
 
 	\begin{frame}{TouchScreen}
 		\centering
 		\begin{tikzpicture}
-			\begin{class}[text width=11cm]{TouchScreen}{0, 0}
-				\attribute{- x, y: WORD}
-				\attribute{- touchCount: WORD}
-				\attribute{- width, height: WORD}
-				\attribute{- i2cTouch: cHwI2Cmaster::Device\&}
-				\attribute{- interruptPort: cHwPort\_N::PortId}
-				\attribute{+ interruptPin: BYTE}
-				\attribute{+ rootContainer: Container*}
-				\attribute{+ \emph{static} INSTANCE: TouchScreen*}
-				
-				\operation{+ refresh(): void}
-				\operation{+ setInterruptMode(mode: bool): void}
-				\operation{+ interruptHandler(): void}
-				\operation{+ setRootContainer(c: Container*): void}
-				\operation{+ getRootContainer(): Container*}
-			\end{class}
+			\input{../Images/UMLDiagrams/TouchScreen.tikz}
 		\end{tikzpicture}
 	\end{frame}
 
 	\begin{frame}{Beispiel GUI}
-		\centering\input{../Images/Components.tikz}
+		\centering\input{../Images/ExampleGUI.tikz}
 	\end{frame}
 
 	\begin{frame}{Das Event System}
