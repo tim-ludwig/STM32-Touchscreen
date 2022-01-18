@@ -209,11 +209,32 @@
 			\item möglichst Ressourcen schonend $\Rightarrow$ Abfragen und zeichnen nur wenn notwendig
 		\end{itemize}
 	\end{frame}
-
+	
+	\subsection{Klassen}
+	\begin{frame}{BoundingBox}
+			\centering
+		\begin{tikzpicture}
+			\begin{class}[text width=11cm]{BoundingBox}{0, 0}
+				\attribute{- left, top, right, bottom: WORD}
+				
+				\operation{+ BoundingBox(x: WORD, y: WORD, width: WORD, height: WORD)}
+				\operation{+ contains(x: WORD, y: WORD): bool}
+				\operation{+ resizeToFit(x: WORD, y: WORD): void}
+				\operation{+ resizeToFit(box: BoundingBox\&): void}
+				\operation{+ x(): WORD}
+				\operation{+ y(): WORD}
+				\operation{+ width(): WORD}
+				\operation{+ height(): WORD}
+			\end{class}
+		\end{tikzpicture}
+	\end{frame}
+	
 	\begin{frame}{Komponenten}
-		\centering\begin{tikzpicture}
+		\centering
+		\begin{tikzpicture}
 			\begin{abstractclass}[text width=11cm]{Component}{0, 0}
-				\attribute{\# box : BoundingBox}
+				\attribute{\# box: BoundingBox}
+				
 				\operation{+ Component(x: WORD, y: WORD, w: WORD, h: WORD)}
 				\operation{+ getBoundingBox(): BoundingBox\&}
 				\operation[0]{+ onEvent(event: DragEvent\&): void}
@@ -225,12 +246,14 @@
 	\end{frame}
 
 	\begin{frame}{Container}
-		\centering\begin{tikzpicture}
+		\centering
+		\begin{tikzpicture}
 			\begin{abstractclass}[text width=3cm]{Component}{0, 0}
 			\end{abstractclass}
 			
 			\begin{class}[text width=11cm]{Container}{0, -2.5}
 				\inherit{Component}
+				
 				\attribute{- compontents: list<Component*>}
 				
 				\operation{+ addComponent(comp: Component*): void}
@@ -240,14 +263,16 @@
 	\end{frame}
 
 	\begin{frame}{Slider}
-		\centering\begin{tikzpicture}
+		\centering
+		\begin{tikzpicture}
 			\begin{abstractclass}[text width=3cm]{Component}{-4, 0}
 			\end{abstractclass}
 			
-			\node[right=of Component] (image) {\includegraphics[height=3cm]{../Images/Slider.png}};
+			\node[right=of Component] (image) {\includegraphics[height=2cm]{../Images/Slider.png}};
 			
 			\begin{class}[text width=11cm]{Slider}{0, -2.5}
 				\inherit{Component}
+				
 				\attribute{- position: double}
 				\attribute{- listeners: list<function<void(SliderEvent\&)>\relax>}
 				
@@ -259,14 +284,16 @@
 	\end{frame}
 
 	\begin{frame}{Toggle Switch}
-		\centering\begin{tikzpicture}
+		\centering
+		\begin{tikzpicture}
 			\begin{abstractclass}[text width=3cm]{Component}{-4, 0}
 			\end{abstractclass}
 			
-			\node[right=of Component] (image) {\includegraphics[height=3cm]{../Images/Switch.png}};
+			\node[right=of Component] (image) {\includegraphics[height=2cm]{../Images/Switch.png}};
 			
 			\begin{class}[text width=11cm]{ToggleSwitch}{0, -2.5}
 				\inherit{Component}
+				
 				\attribute{- state: bool}
 				\attribute{- listeners: list<function<void(ToggleSwitchEvent\&)>\relax>}
 				
@@ -277,20 +304,44 @@
 	\end{frame}
 
 	\begin{frame}{Radio Button}
-		\centering\begin{tikzpicture}
+		\centering
+		\begin{tikzpicture}
 			\begin{abstractclass}[text width=3cm]{Component}{-4, 0}
 			\end{abstractclass}
 			
-			\node[right=of Component] (image) {\includegraphics[height=3cm]{../Images/RadioButton.png}};
+			\node[right=of Component] (image) {\includegraphics[height=2cm]{../Images/RadioButton.png}};
 			
 			\begin{class}[text width=11cm]{RadioButton}{0, -2.5}
 				\inherit{Component}
+				
 				\attribute{- state: bool}
 				\attribute{- deselectable: bool}
 				\attribute{- listeners: list<function<void(RadioButtonEvent\&)>\relax>}
 				
 				\operation{+ getState(): bool}
 				\operation{+ addEventListener(listener: function<void(RadioButtonEvent\&)>): void}
+			\end{class}
+		\end{tikzpicture}
+	\end{frame}
+
+	\begin{frame}{TouchScreen}
+		\centering
+		\begin{tikzpicture}
+			\begin{class}[text width=11cm]{TouchScreen}{0, 0}
+				\attribute{- x, y: WORD}
+				\attribute{- touchCount: WORD}
+				\attribute{- width, height: WORD}
+				\attribute{- i2cTouch: cHwI2Cmaster::Device\&}
+				\attribute{- interruptPort: cHwPort\_N::PortId}
+				\attribute{+ interruptPin: BYTE}
+				\attribute{+ rootContainer: Container*}
+				\attribute{+ \emph{static} INSTANCE: TouchScreen*}
+				
+				\operation{+ refresh(): void}
+				\operation{+ setInterruptMode(mode: bool): void}
+				\operation{+ interruptHandler(): void}
+				\operation{+ setRootContainer(c: Container*): void}
+				\operation{+ getRootContainer(): Container*}
 			\end{class}
 		\end{tikzpicture}
 	\end{frame}
