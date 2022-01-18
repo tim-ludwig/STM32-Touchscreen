@@ -1,0 +1,8 @@
+\newcommand{\linkstyle}[1]{\color{blue}#1}
+\newcommand{\link}[2]{\href{#1}{\linkstyle{#2}}}
+\newcommand{\secref}[2]{\hyperref[sec:#1]{\linkstyle{\texttt{#2}}}}
+
+\newcommand{\textoverline}[1]{$\overline{\mbox{#1}}$}
+
+\newcommandx{\abbrev}[5][1=,3=\bfseries,5=]{{#1#2}\footnote{{#3#2} {#5#4}}}
+\newcommandx{\abbrevtt}[4][1=\bfseries,4=\itshape]{\abbrev[\ttfamily]{#2}[#1]{#3}[#4]}

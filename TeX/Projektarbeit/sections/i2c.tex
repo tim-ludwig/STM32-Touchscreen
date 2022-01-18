@@ -5,12 +5,12 @@
 I²C basiert auf einem Bussystem.
 Dies bedeutet, dass alle Komponenten, die miteinander kommunizieren sollen, an einer oder mehreren gemeinsamen Leitungen anliegen.
 Der I²C-Bus besteht aus zwei Leitungen.
-Die Datenleitung wird \texttt{SDA}\footnote{\textbf{SDA} \textit{serial data line}} und die Taktleitung wird \texttt{SCL}\footnote{\textbf{SCL} \textit{serial clock line}} genannt.
+Die Datenleitung wird \abbrevtt{SDA}{serial data line} und die Taktleitung wird \abbrevtt{SCL}{serial clock line} genannt.
 
 Alle Daten, die versendet werden, sind in 8-Bit-Wörter (Bytes) aufgeteilt.
-Jedes Bit wird nacheinander auf die Datenleitung geschrieben.
+Jedes Bit wird nacheinander in \abbrev{MSB}{most significant bit}[\itshape]-Bitreihenfolge auf die Datenleitung geschrieben.
 
-Um eine bestimmte Komponenten über den Bus ansprechen zu können, benötigt jede Komponente eine eindeutige Adresse, welche von den Herstellern zugewiesen wird.
+Um eine bestimmte Komponente über den Bus ansprechen zu können, benötigt jede Komponente eine eindeutige Adresse, welche von den Herstellern zugewiesen wird.
 
 Zudem wird zur Kommunikation das \texttt{Controller/Target}-Prinzip verwendet.
 Die sogenannten \texttt{Controller} sind Komponenten, die eine Kommunikation mit einer anderen Komponente initiieren können.
