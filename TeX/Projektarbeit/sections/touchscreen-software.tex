@@ -1,5 +1,8 @@
 \subsection{Aufbau des Touchscreen GUI's}
-	Nun also zur Software. Kern des Systems ist eine Abstraktion des Touchscreens auf dem Daughterboard:
+	Nun also zur Software. 
+	Das System ist als Event gesteuertes UI in seinen Grundzügen stark \texttt{Java Swing} angelehnt.
+	Die Implementierten Komponenten sind typische Kontrollen eines Touch GUI.
+	Kern des Systems ist eine Abstraktion des Touchscreens auf dem Daughterboard:
 	
 	\subsubsection{Die Klasse TouchScreen}\label{sec:touchscreen_class}
 		\begin{wrapfigure}{r}{0.4\textwidth}
@@ -43,7 +46,7 @@
 				\end{tikzpicture}
 			}
 			\label{uml-container}
-		%\caption{Container UML}
+			%\caption{Container UML}
 		\end{wrapfigure}
 		Ein \texttt{Container} dient nur dazu, mehrere Komponenten in einer Gruppe zusammenzufassen.
 		Bestände die Möglichkeit, eine Komponente zu \emph{deaktivieren}, wäre es Aufgabe dieser Klasse diese Operation an ihre Komponenten weiterzugeben.
@@ -129,3 +132,17 @@
 		und Teilt diesen Abstand durch die Breite des Bewegungsraumes. Anschließend wird $pos \in [0; 1]$ erzwungen.
 		
 	\subsubsection{Event System}\label{sec:EventSystem}
+		Das wichtigste Werkzeug im Entwurf dieses Touch GUI's ist das Event System.
+		Ein \texttt{Event} beschreibt eine Berührung oder eine Interaktion des Nutzers mit einem Objekt.
+		\texttt{Events} sind aufgeteilt in \texttt{TouchScreenEvents} und \texttt{ActionEvents}.
+
+		\texttt{TouchScreenEvents} werden vom TouchScreen in dessen \texttt{Interrupt Handler} generiert und stellen eine einzelne Berührung oder Bewegung dar.
+		Sie werden von den in der Hierarchie des Systems eingebetteten Komponenten durch die in \texttt{Component} deklarierten Methoden behandelt
+		und bei Bedarf in \texttt{ActionEvents} übersetzt.
+		Diese Art Event dient nicht der Umsetzung von Anwendungslogik, sondern ausschließlich der Übertragung von Berührungsdaten an die Komponenten.
+		
+		\texttt{ActionEvents} werden von einzelnen Elementen des GUI erzeugt und stellen eine Veränderung in deren Zustand dar.
+		Sobald eine Komponente eine Änderung ihres Zustandes kommunizieren möchte, kann sie ein entsprechendes \texttt{ActionEvent} erzeugen
+		und an ihre registrierten Listener Übergeben.
+		
+		
