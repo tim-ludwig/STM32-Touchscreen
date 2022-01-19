@@ -28,10 +28,10 @@
 			\begin{column}{0.6\textwidth}
 				Funktionsweise: 
 				\begin{itemize}
-					\item<1-> Kontakt zweier Schichten durch Deformierung
-					\item<2-> Anlegen einer Spannung über eine Schicht
-					\item<3-> Messen des Potentials an den Enden der anderen Schicht
-					\item<4-> Wdh. mit vertauschten Rollen
+					\item<+-> Kontakt zweier Schichten durch Deformierung
+					\item<+-> Anlegen einer Spannung über eine Schicht
+					\item<+-> Messen des Potentials an den Enden der anderen Schicht
+					\item<+-> Wdh. mit vertauschten Rollen
 				\end{itemize}
 				
 				Häufige Nutzung:
@@ -68,9 +68,9 @@
 			\begin{column}{0.6\textwidth}
 				Funktionsweise:
 				\begin{itemize}
-					\item<1-> Wechselspannung an den Ecken anlegen
-					\item<2-> bei Berührung wird eine Kapazität auf- und entladen
-					\item<3-> den Strom durch die Ecken messen
+					\item<+-> Wechselspannung an den Ecken anlegen
+					\item<+-> bei Berührung wird eine Kapazität auf- und entladen
+					\item<+-> den Strom durch die Ecken messen
 				\end{itemize}
 			\end{column}
 		\end{columns}
@@ -84,9 +84,9 @@
 			\begin{column}{0.6\textwidth}
 				Funktionsweise:
 				\begin{itemize}
-					\item<1-> zwei Ebenen Gitter aus Leitern
-					\item<2-> Anlegen einer Wechselspannung an eine Ebene
-					\item<3-> Messen des durch die Leiter der anderen Ebene fließenden Stroms
+					\item<+-> zwei Ebenen Gitter aus Leitern
+					\item<+-> Anlegen einer Wechselspannung an eine Ebene
+					\item<+-> Messen des durch die Leiter der anderen Ebene fließenden Stroms
 				\end{itemize}
 			\end{column}
 		\end{columns}
@@ -150,7 +150,9 @@
 				\end{enumerate}
 			\end{column}
 			\begin{column}{0.5\textwidth}
-				\input{../Images/I2C_Communication_START.tikz}
+				\begin{figure}
+					\input{../Images/I2C_Communication_START.tikz}
+				\end{figure}
 			\end{column}
 		\end{columns}
 	\end{frame}
@@ -176,7 +178,9 @@
 				Wdh. bis alle Bytes versendet sind.
 			\end{column}
 			\begin{column}{0.5\textwidth}
-				\input{../Images/I2C_Communication_DATA.tikz}
+				\begin{figure}
+					\input{../Images/I2C_Communication_DATA.tikz}
+				\end{figure}
 			\end{column}
 		\end{columns}
 	\end{frame}
@@ -191,8 +195,12 @@
 				\end{enumerate}
 			\end{column}
 			\begin{column}{0.4\textwidth}
-				\input{../Images/I2C_Communication_STOP.tikz}
-				\input{../Images/I2C_Communication_repSTART.tikz}
+				\begin{figure}
+					\input{../Images/I2C_Communication_STOP.tikz}
+				\end{figure}
+				\begin{figure}
+					\input{../Images/I2C_Communication_repSTART.tikz}
+				\end{figure}
 			\end{column}
 		\end{columns}
 	\end{frame}

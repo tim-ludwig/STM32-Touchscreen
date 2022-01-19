@@ -1,21 +1,19 @@
-\begin{figure}
-	\begin{tikztimingtable}
-		% width=11.375
-		%
-		SDA & H N(start) L E 6{D{}} E N(ackL) L N(ackR) .375H ; [dotted] h \\
-		SCL & 1.5H .875C {c N(c1) c} {c N(c2) c} {c N(c3) c} {c N(c4) c} {c N(c5) c} {c N(c6) c} {c N(c7) c} {c N(c8) c} {c N(c9) c} ; [dotted] l \\
-		%
-		\begin{extracode}[every node/.style={font=\tiny}]
-			\foreach \i in {1,...,9}
-				\node[left=-.345em of c\i.mid] (\i) {\i};
+\begin{tikztimingtable}
+	% width=11.375
+	%
+	SDA & H N(start) L E 6{D{}} E N(ackL) L N(ackR) .375H ; [dotted] h \\
+	SCL & 1.5H .875C {c N(c1) c} {c N(c2) c} {c N(c3) c} {c N(c4) c} {c N(c5) c} {c N(c6) c} {c N(c7) c} {c N(c8) c} {c N(c9) c} ; [dotted] l \\
+	%
+	\begin{extracode}[every node/.style={font=\tiny}]
+		\foreach \i in {1,...,9}
+			\node[left=-.345em of c\i.mid] (\i) {\i};
+		
+		\begin{pgfonlayer}{background}
+			\draw[draw=gray,dashed] ([shift={(-.5,-2.5)}] start.LOW) rectangle ([shift={(.25,1.5)}] start.low);
+			\node[color=gray,below=of start.high,anchor=north] {\texttt{START}};
 			
-			\begin{pgfonlayer}{background}
-				\draw[draw=gray,dashed] ([shift={(-.5,-2.5)}] start.LOW) rectangle ([shift={(.25,1.5)}] start.low);
-				\node[color=gray,below=of start.high,anchor=north] {\texttt{START}};
-				
-				\draw[draw=gray,dashed] ([shift={(-.075,-2.5)}] ackL.LOW) rectangle ([shift={(.125,.5)}] ackR.high);
-				\node[color=gray,below left=.5ex and .25em of c9.low,anchor=north] {\texttt{ACK}};
-			\end{pgfonlayer}
-		\end{extracode}
-	\end{tikztimingtable}
-\end{figure}
+			\draw[draw=gray,dashed] ([shift={(-.075,-2.5)}] ackL.LOW) rectangle ([shift={(.125,.5)}] ackR.high);
+			\node[color=gray,below left=.5ex and .25em of c9.low,anchor=north] {\texttt{ACK}};
+		\end{pgfonlayer}
+	\end{extracode}
+\end{tikztimingtable}
