@@ -122,6 +122,10 @@
 			\label{uml-slider}
 			%\caption{Slider UML}
 		\end{wrapfigure}
-		Ein \texttt{Slider} ermöglicht das Auswählen eines Wertes aus einem stetigen Bereich.
+		Ein \texttt{Slider} ermöglicht das Auswählen eines Fließkommawertes.
+		Das Attribut \texttt{position} speichert die relative Position des \texttt{Sliders} von 0 bis 1.
+		Erhält der \texttt{Slider} ein \texttt{TouchEvent}, wird die neue Position bestimmt.
+		Die Methode \texttt{setPosition} berechnet den Abstand der Berührung vom Anfang des Bewegungsraumes des \texttt{Sliders}
+		und Teilt diesen Abstand durch die Breite des Bewegungsraumes. Anschließend wird $pos \in [0; 1]$ erzwungen.
 		
 	\subsubsection{Event System}\label{sec:EventSystem}
