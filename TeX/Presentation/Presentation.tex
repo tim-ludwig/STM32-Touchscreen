@@ -1,4 +1,4 @@
-\documentclass[12pt]{beamer}
+\documentclass[12pt, aspectratio=169]{beamer}
 
 \input{../Include/packages.tex}
 \input{../Include/commands.tex}
@@ -281,10 +281,11 @@
 	\end{frame}
 
 	\begin{frame}{TouchScreen}
-		\centering
-		\begin{tikzpicture}
-			\input{../Images/UMLDiagrams/TouchScreen.tikz}
-		\end{tikzpicture}
+		\centering\scalebox{0.8}{
+			\begin{tikzpicture}
+				\input{../Images/UMLDiagrams/TouchScreen.tikz}
+			\end{tikzpicture}
+		}
 	\end{frame}
 
 	\begin{frame}{Beispiel GUI}
@@ -301,9 +302,17 @@
 				Berührung außerhalb der \emph{Bounding-Box} von \texttt{Slider}.
 			\end{column}
 		\end{columns}
-		
 	\end{frame}
-
+	
+	\begin{frame}{Offene ToDo's}
+		\begin{itemize}
+			\item zu- und wegschalten einzelner Komponenten
+			\item Performance
+			\item Weitere Komponenten
+			\item \dots
+		\end{itemize}
+	\end{frame}
+	
 	\section{Quellen}
 	\begin{frame}{Quellen}
 		\nocite{ts-holzinger}
