@@ -97,6 +97,20 @@
 		\begin{wrapfigure}{r}{0.4\textwidth}
 			\scalebox{0.75}{
 				\begin{tikzpicture}
+					\input{../Images/UMLDiagrams/RadioButtonGroup.tikz}
+				\end{tikzpicture}
+			}
+			\label{uml-radiogroup}
+			%\caption{RadioButtonGroup UML}
+		\end{wrapfigure}
+		Diese Gruppen von \texttt{RadioButtons} wird durch eine eigene Klasse modelliert.
+		Beim Hinzufügen eines \texttt{RadioButton} in die Gruppe registriert sie die \texttt{buttonEventHandler} Methode als \texttt{Listener} im Button.
+		Sobald ein \texttt{RadioButton} ein Event auslöst, setzt diese Methode den Zustand aller anderen Buttons auf \texttt{false}.
+		
+		\medskip
+		\begin{wrapfigure}{r}{0.4\textwidth}
+			\scalebox{0.75}{
+				\begin{tikzpicture}
 					\begin{abstractclass}[text width=3cm]{Component}{-4, 0}
 					\end{abstractclass}
 					
