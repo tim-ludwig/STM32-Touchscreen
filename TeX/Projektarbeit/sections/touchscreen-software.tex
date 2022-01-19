@@ -22,7 +22,7 @@
 				\end{tikzpicture}
 			}
 			\label{uml-component}
-			\caption{Component UML}
+			%\caption{Component UML}
 		\end{wrapfigure}
 		Alle Komponenten haben die gemeinsame Oberklasse \texttt{Component}, welche drei Aspekte der Komponenten modelliert. Erstens: die \texttt{BoundingBox}, ein achsparalleles Rechteck, welches die Komponente vollständig enthält.
 		Eine Komponente erhält Touchscreen-Events nur, wenn diese in ihrer \texttt{BoundingBox} liegen.
@@ -43,7 +43,7 @@
 				\end{tikzpicture}
 			}
 			\label{uml-container}
-			\caption{Container UML}
+		%\caption{Container UML}
 		\end{wrapfigure}
 		Ein \texttt{Container} dient nur dazu, mehrere Komponenten in einer Gruppe zusammenzufassen.
 		Bestände die Möglichkeit, eine Komponente zu \emph{deaktivieren}, wäre es Aufgabe dieser Klasse diese Operation an ihre Komponenten weiterzugeben.
@@ -63,7 +63,7 @@
 				\end{tikzpicture}
 			}
 			\label{uml-toggleswitch}
-			\caption{ToggleSwitch UML}
+			%\caption{ToggleSwitch UML}
 		\end{wrapfigure}
 		Ein \texttt{ToggleSwitch} dient zum Setzen einer Ein/Aus-Einstellung.
 		Dementsprechend speichert die Klasse \texttt{ToggleSwitch} den aktuellen Zustand des Schalters in einem \texttt{bool}.
@@ -85,7 +85,7 @@
 				\end{tikzpicture}
 			}
 			\label{uml-radiobutton}
-			\caption{RadioButton UML}
+			%\caption{RadioButton UML}
 		\end{wrapfigure}
 		Wie ein \texttt{ToggleSwitch} dient ein \texttt{RadioButton} zum Setzen einer Ein/Aus-Einstellung.
 		Im Gegensatz zu einem \texttt{ToggleSwitch} kommuniziert ein \texttt{RadioButton} sich gegenseitig ausschließende Optionen.
@@ -106,7 +106,7 @@
 				\end{tikzpicture}
 			}
 			\label{uml-slider}
-			\caption{Slider UML}
+			%\caption{Slider UML}
 		\end{wrapfigure}
 		Ein \texttt{Slider} ermöglicht das Auswählen eines Wertes aus einem stetigen Bereich.
 		
