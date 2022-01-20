@@ -1,12 +1,12 @@
 \subsection{Touchscreen}
 
-Der verwendete Touchscreen ist ein projiziert-kapazitiver Touchscreen, welcher mit einer Eigenkapazität arbeitet. \cite[\itshape4.4~Touch~panel]{ts-userManual}
+Der verwendete Touchscreen ist ein projiziert-kapazitiver Touchscreen, welcher mit der Eigenkapazität des Streifenrasters arbeitet. \cite[\itshape4.4~Touch~panel]{ts-userManual}
 
-Neben den projiziert-kapazitiven Touchscreens existieren auch noch Oberflächen-kapazitive Touchscreens, welche leicht anders funktionieren.
+Neben den projiziert-kapazitiven Touchscreens existieren auch noch Oberflächen-kapazi\-tive Touchscreens, welche leicht anders funktionieren.
 %Bei beiden Varianten wird eine Berührung durch Änderung von Kapazitäten im Touchscreen erkannt.
 
 Bei Oberflächen-kapazitiven Touchscreens wird eine Glasscheibe mit einer sehr dünnen Metallschicht beschichtet.
-An allen vier Ecken wird eine kleine Wechselspannung angelegt, welche ein schwaches elektrisches Feld erzeugt.
+An allen vier Ecken wird eine kleine Wechselspannung angelegt.
 Wenn nun ein leitfähiges Material die Oberfläche berührt, wird dies ge- und entladen.
 Durch das Messen des Stroms durch die Ecken kann nun herausgefunden werden, wie weit die Berührung von einer bestimmten Ecke entfernt ist.
 Durch Kombination der vier Entfernungen zu den vier Ecken kann die Position der Berührung ermittelt werden.
@@ -14,15 +14,15 @@ Durch Kombination der vier Entfernungen zu den vier Ecken kann die Position der 
 
 Bei projiziert-kapazitiven Touchscreens hingegen wird ein Raster aus leitfähigen Streifen verwendet, welches unter der Glasscheibe liegt.
 Hierbei dient eine Ebene des Rasters als Sensorebene und die andere Ebene als Maskenebene.
-Die Streifen der Maskenebene können entweder mit \texttt{ground} oder mit der \textit{active backplane} verbunden werden.
+Die Streifen der Maskenebene können mit \texttt{ground} verbunden werden.
 Wenn einer dieser Streifen mit \texttt{ground} verbunden wurde, können Streifen der Sensorebene auf der Höhe des Maskenstreifens keine Berührung erkennen.
-Um alle Berührungspositionen zu ermitteln, werden nun die Maskenstreifen linear sequentiell mit der \textit{active backplane} verbunden, sodass alle außer einem Streifen mit \texttt{ground} verbunden sind.
-Durch dieses Verfahren ist für jedes Abfrageintervall eine Achse fest und die andere durch den Nutzer beeinflussbar.
+Um alle Berührungspositionen zu ermitteln, werden nun die Maskenstreifen linear sequentiell von \texttt{ground} gelöst, sodass alle außer einem Streifen mit \texttt{ground} verbunden sind.
+Durch dieses Verfahren ist für jedes Abfrageintervall das Signal einer Achse fest und das der anderen durch Berührungen kontrollierbar.
 Die veränderte Kapazität an der Position der Berührung gibt Aufschluss darüber, wie weit diese Berührung von einem Sensorstreifen entfernt liegt.
 Somit können auch Berührungen zwischen zwei Sensorstreifen erkannt werden.
 \cite{ts-self_capacitive_multitouch}
 
-Sogenannte \textit{"ghost touches"} können entstehen, wenn statt der beschriebenen Vorgehensweise alle Maskenstreifen mit der \textit{active backplane} verbunden sind und somit die gesamte Länge der Sensorstreifen Berührungen erkennen kann.
+Sogenannte \textit{"ghost touches"} können entstehen, wenn statt der beschriebenen Vorgehensweise alle Maskenstreifen von \texttt{ground} gelöst sind und somit die gesamte Länge der Sensorstreifen Berührungen erkennen kann.
 Bei einer Abfrage mit zwei Berührungspunkten ergeben sich zwei mögliche Ermittlungsergebnisse.
 Das eine Ergebnis besteht aus den eigentlichen Berührungspositionen $(x_0,y_0)$ und $(x_1,y_1)$.
 Das andere besteht aus den falsch ermittelten Positionen $(x_0,y_1)$ und $(x_1,y_0)$.

@@ -4,6 +4,7 @@ I²C (\textit{Inter-Integrated Circuit}) basiert auf einem Bussystem.
 Dies bedeutet, dass alle Komponenten, die miteinander kommunizieren sollen, an einer oder mehreren gemeinsamen Leitungen anliegen.
 Der I²C-Bus besteht aus zwei Leitungen.
 Die Datenleitung wird \abbrevtt{SDA}{serial data line} und die Taktleitung wird \abbrevtt{SCL}{serial clock line} genannt.
+\cite[6]{I2C-spec_userManual}
 
 Alle Daten, die versendet werden, sind in Bytes aufgeteilt.
 Jedes Byte wird in \abbrev{MSB}{most significant bit}[\itshape]-Reihenfolge auf die Datenleitung geschrieben.
@@ -15,6 +16,7 @@ Die sogenannten \texttt{Controller} sind Komponenten, die eine Kommunikation mit
 Sogenannte \texttt{Targets} sind Komponenten, die von einem \texttt{Controller} angesprochen werden können.
 Der \texttt{Controller} einer Kommunikation entscheidet außerdem, ob er einem \texttt{Target} Daten senden oder bestimmte Daten von diesem anfordern möchte.
 Während der Kommunikation erzeugt immer der \texttt{Controller} den Takt, welcher über die Taktleitung verteilt wird.
+\cite[6]{I2C-spec_userManual}
 
 Trotz der Möglichkeit mehrere \texttt{Controller} an den Bus anzuschließen und kommunizieren zu lassen, wird im Weiteren davon ausgegangen, dass nur ein \texttt{Controller} an dem Bus angeschlossen ist.
 
@@ -30,6 +32,8 @@ Um eine Kommunikation zu starten, sendet der \texttt{Controller} eine Startanwei
 Eine Startanweisung ist definiert als eine fallende Flanke auf der Datenleitung, während die Taktleitung auf \texttt{HIGH} steht.
 Wenn das \texttt{Target} seine Adresse wiedererkannt hat, bestätigt es den Aufbau der Kommunikation durch ein sogenanntes \texttt{Acknowledge}.
 Um ein solches Signal erzeugen zu können, gibt der Sender die Datenleitung frei und der Empfänger setzt diese auf \texttt{LOW}.
+(\ref{i2c-start})
+\cite[9\psq\ \& 12\psq]{I2C-spec_userManual}
 
 \begin{wrapfigure}{r}{.45\textwidth}
 	\centering
@@ -42,8 +46,10 @@ Um ein solches Signal erzeugen zu können, gibt der Sender die Datenleitung frei
 Wenn der \texttt{Controller} Daten anfordern möchte, wird dieser nach dem \texttt{Acknowledge} zum Empfänger und das \texttt{Target} zum Sender.
 Sobald der Kommunikationsaufbau bestätigt wurde, fängt der Sender mit dem nächsten Taktzyklus an die einzelnen Bytes über den Bus zu versenden.
 Hierbei wird vom Empfänger nach jedem Byte eine Empfangsbestätigung erzeugt.
+(\ref{i2c-data})
+\cite[9\psq]{I2C-spec_userManual}
 
-\begin{wrapfigure}[5]{r}{.45\textwidth}
+\begin{wrapfigure}[4]{r}{.45\textwidth}
 	\centering
 	\scalebox{1.25}{\input{../Images/I2C_Communication_STOP.tikz}}
 	\scalebox{1.25}{\input{../Images/I2C_Communication_repSTART.tikz}}
@@ -56,5 +62,5 @@ Um die Kommunikation zu beenden, sendet der \texttt{Controller} entweder eine An
 Eine Anweisung zur Beendigung der Kommunikation ist definiert als eine steigende Flanke auf der Datenleitung, während die Taktleitung auf \texttt{HIGH} steht.
 Eine erneute Startanweisung fasst das Ende der laufenden und den Start einer neuen Kommunikation zusammen.
 Diese verkürzte Methode wird bevorzugt, wenn der \texttt{Controller} aus dem Schreibmodus in den Lesemodus oder umgekehrt wechseln möchte.
-
-\cite{I2C-spec_userManual}
+(\ref{i2c-stop})
+\cite[9 \& 13]{I2C-spec_userManual}
