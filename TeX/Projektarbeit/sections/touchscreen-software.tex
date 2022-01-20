@@ -14,8 +14,21 @@
 		\end{wrapfigure}
 		Diese Klasse bietet verschiedene Methoden, welche die Kommunikation mit dem Daughterboard umsetzen und ist als \emph{Singelton} entworfen.
 		Die statische Variable \texttt{INSTANCE} speichert die (einzige) Instanz dieser Klasse, um ihren \texttt{interruptHanlder} aus \texttt{linkage "C"} aufrufen zu können.
+		
 		Um das System nicht unnötig aus zu lasten, ist die Instanz in der Lage, einen GPIO-Interrupt zu behandeln.
-		Sobald eine Berührung erkannt wird, fragt \texttt{refresh()} die aktuellen Daten über den I²C-Bus vom Daughterboard ab und löst ein entsprechendes \secref{EventSystem}{Event} aus. Dieses Event wird an den \texttt{RootContainer} übergeben, welcher es an seine Komponenten weitergibt.
+		Das Daughterboard ist in der Lage eine erkannte Berührung durch das auf \texttt{LOW} ziehen der \texttt{INT} Leitung zu signalisieren \cite[8\psq]{ts-userManual}.
+		Diese Leitung ist über den Stecker \texttt{CN1} auf Pin 4 mit dem Motherboard verbunden. Dieser entspricht dem Pin \texttt{PI13} des $\mu C$ \cite[27\psq]{disco-userManual}.
+		
+		Der \texttt{EXTI} Controller des $\mu C$ ist für das Erzeugen eines Interrupts, beim Eintreten eines Signals auf einer Input Line (einem Pin des $\mu C$), zuständig.
+		Der \texttt{EXTI} Controller ermöglicht das Maskieren einzelner Interrupts und Selektion der Flanke des Signals, die den Interrupt auslösen soll. \cite[319\psqq]{stm32_refManual}
+		
+		Ein ausstehender Interrupt, konfiguriert durch den \texttt{EXTI} Controller, wird durch das aufrufen der Interruptroutine durch den \texttt{Nested vectored interrupt controller} (\texttt{NVIC}) behandelt \cite[313\psqq]{stm32_refManual}.
+		Der entsprechende Interrupt muss im \texttt{SYSCFG} Register freigeschaltet werden, dies passiert anhand seiner \texttt{IRQNumber}.
+		
+		Sobald eine Berührung erkannt wird, wird der entsprechende \texttt{IRQHandler} aufgerufen.
+		Dieser ruft den InterruptHandler der Instanz der TouchScreen Klasse auf.
+		Diese fragt durch \texttt{refresh()} die aktuellen Daten über den I²C-Bus vom Daughterboard ab und erzeugt ein entsprechendes \secref{EventSystem}{Event}.
+		Dieses Event wird an den \texttt{RootContainer} übergeben, welcher es an seine Komponenten weitergibt.
 	
 	\subsubsection{Komponenten und Container}\label{sec:components}
 		\begin{wrapfigure}{r}{0.4\textwidth}
@@ -52,6 +65,9 @@
 		Bestände die Möglichkeit, eine Komponente zu \emph{deaktivieren}, wäre es Aufgabe dieser Klasse diese Operation an ihre Komponenten weiterzugeben.
 		Beispielsweise könnte eine Gruppe von \texttt{RadioButtons} -- in einem Container zusammengefasst -- durch nur einen Aufruf deaktiviert werden.
 		Dieses Feature ist aber nicht implementiert, demnach ist der \texttt{Container} nur eine logische Einheit.
+		
+		Da ein \texttt{Container} von \texttt{Component} erbt, ergibt sich eine Hierarchie der Komponenten. Ziel dessen ist es, das Interface möglichst modular gestalten zu können.
+		
 		
 		\medskip
 		\begin{wrapfigure}{r}{0.4\textwidth}
