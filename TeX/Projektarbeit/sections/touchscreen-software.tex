@@ -5,15 +5,17 @@
 	Kern des Systems ist eine Abstraktion des Touchscreens auf dem Daughterboard.
 	
 	\subsubsection{Die Klasse TouchScreen}\label{sec:touchscreen_class}
-		\begin{wrapfigure}{r}{0.4\textwidth}
+		\begin{wrapfigure}[14]{r}{0.4\textwidth}
 			\scalebox{0.75}{
 				\begin{tikzpicture}
 					\input{../Images/UMLDiagrams/TouchScreen.tikz}
 				\end{tikzpicture}
 			}
+			\caption{Klassendiagramm TouchScreen}
+			\label{uml-touchscreen}
 		\end{wrapfigure}
-		Diese Klasse bietet verschiedene Methoden, welche die Kommunikation mit dem Daughterboard umsetzen und ist als \emph{Singelton} entworfen.
-		Die statische Variable \texttt{INSTANCE} speichert die (einzige) Instanz dieser Klasse, um ihren \texttt{interruptHanlder} aus \texttt{linkage "C"} aufrufen zu können.
+		Diese Klasse \ref{uml-touchscreen} bietet verschiedene Methoden, welche die Kommunikation mit dem Daughterboard umsetzen und ist als \emph{Singelton} entworfen.
+		Die statische Variable \texttt{INSTANCE} speichert die (einzige) Instanz dieser Klasse, um ihren \texttt{InterruptHandler} aus \texttt{linkage "C"} aufrufen zu können.
 		
 		Um das System nicht unnötig auszulasten, ist die Instanz in der Lage, einen GPIO-Interrupt zu behandeln.
 		Das Daughterboard ist in der Lage eine erkannte Berührung durch das auf \texttt{LOW} ziehen der \texttt{INT} Leitung zu signalisieren \cite[8\psq]{ts-userManual}.
@@ -31,16 +33,16 @@
 		Dieses Event wird schließlich an den \texttt{RootContainer} übergeben, welcher es an seine Komponenten weitergibt.
 	
 	\subsubsection{Komponenten und Container}\label{sec:components}
-		\begin{wrapfigure}{r}{0.4\textwidth}
+		\begin{wrapfigure}[12]{R}{0.4\textwidth}
 			\scalebox{0.75}{
 				\begin{tikzpicture}
 					\input{../Images/UMLDiagrams/Component.tikz}
 				\end{tikzpicture}
 			}
+			\caption{Klassendiagramm Component}
 			\label{uml-component}
-			%\caption{Component UML}
 		\end{wrapfigure}
-		Alle Komponenten haben die gemeinsame Oberklasse \texttt{Component}, welche drei Aspekte der Komponenten modelliert. Erstens: die \texttt{BoundingBox}, ein achsparalleles Rechteck, welches die Komponente vollständig enthält.
+		Alle Komponenten haben die gemeinsame Oberklasse \texttt{Component} \ref{uml-component}, welche drei Aspekte der Komponenten modelliert. Erstens: die \texttt{BoundingBox}, ein achsparalleles Rechteck, welches die Komponente vollständig enthält.
 		Eine Komponente erhält Touchscreen-Events nur, wenn diese in ihrer \texttt{BoundingBox} liegen.
 		Zweitens: drei Methoden, welche Touchscreen-Events annehmen und verarbeiten.
 		Drittens: eine Methode, welche die Komponente auf ein Display zeichnen kann.
@@ -49,7 +51,7 @@
 		Diese sind aber komponentenspezifisch und deswegen nicht in der Klasse \texttt{Component} implementiert.
 		
 		\medskip
-		\begin{wrapfigure}{r}{0.4\textwidth}
+		\begin{wrapfigure}[10]{r}{0.4\textwidth}
 			\scalebox{0.75}{
 				\begin{tikzpicture}
 					\begin{abstractclass}{Component}{0, 0}
@@ -58,16 +60,15 @@
 					\input{../Images/UMLDiagrams/Container.tikz}
 				\end{tikzpicture}
 			}
+			\caption{Klassendiagramm Container}
 			\label{uml-container}
-			%\caption{Container UML}
 		\end{wrapfigure}
-		Ein \texttt{Container} dient nur dazu, mehrere Komponenten in einer Gruppe zusammenzufassen.
+		Ein \texttt{Container} \ref{uml-container} dient nur dazu, mehrere Komponenten in einer Gruppe zusammenzufassen.
 		Bestände die Möglichkeit, eine Komponente zu \emph{deaktivieren}, wäre es Aufgabe dieser Klasse diese Operation an ihre Komponenten weiterzugeben.
 		Beispielsweise könnte eine Gruppe von \texttt{RadioButtons} -- in einem Container zusammengefasst -- durch nur einen Aufruf deaktiviert werden.
 		Dieses Feature ist aber nicht implementiert, demnach ist der \texttt{Container} nur eine logische Einheit.
 		
 		Da ein \texttt{Container} von \texttt{Component} erbt, ergibt sich eine Hierarchie der Komponenten. Ziel dessen ist es, das Interface möglichst modular gestalten zu können.
-		
 		
 		\medskip
 		\begin{wrapfigure}{r}{0.4\textwidth}
@@ -81,10 +82,10 @@
 					\input{../Images/UMLDiagrams/ToggleSwitch.tikz}
 				\end{tikzpicture}
 			}
+			\caption{Klassendiagramm ToggleSwitch}
 			\label{uml-toggleswitch}
-			%\caption{ToggleSwitch UML}
 		\end{wrapfigure}
-		Ein \texttt{ToggleSwitch} dient zum Setzen einer Ein/Aus-Einstellung.
+		Ein \texttt{ToggleSwitch} \ref{uml-toggleswitch} dient zum Setzen einer Ein/Aus-Einstellung.
 		Dementsprechend speichert die Klasse \texttt{ToggleSwitch} den aktuellen Zustand des Schalters in einem \texttt{bool}.
 		Erhält ein \texttt{ToggleSwitch} ein \texttt{TouchEvent} wechselt er den Zustand.
 		Außerdem erzeugt er ein \texttt{ToggleSwitchEvent} (eine Subklasse von \texttt{ActionEvent}).
@@ -103,10 +104,10 @@
 					\input{../Images/UMLDiagrams/RadioButton.tikz}
 				\end{tikzpicture}
 			}
+			\caption{Klassendiagramm RadioButton}
 			\label{uml-radiobutton}
-			%\caption{RadioButton UML}
 		\end{wrapfigure}
-		Wie ein \texttt{ToggleSwitch} dient ein \texttt{RadioButton} zum Setzen einer Ein/Aus-Einstellung.
+		Wie ein \texttt{ToggleSwitch} dient ein \texttt{RadioButton} \ref{uml-radiobutton} zum Setzen einer Ein/Aus-Einstellung.
 		Im Gegensatz zu einem \texttt{ToggleSwitch} kommuniziert ein \texttt{RadioButton} sich gegenseitig ausschließende Optionen.
 		Die beiden Klassen ähneln sich daher stark. Der einzige Unterschied liegt darin, dass es möglich ist, das Abwählen eines
 		\texttt{RadioButtons} im Konstruktor zu deaktivieren. Ein \texttt{RadioButton} kann dann nur abgewählt werden,
@@ -120,9 +121,9 @@
 				\end{tikzpicture}
 			}
 			\label{uml-radiogroup}
-			%\caption{RadioButtonGroup UML}
+			\caption{Klassendiagramm RadioButtonGroup}
 		\end{wrapfigure}
-		Diese Gruppen von \texttt{RadioButtons} wird durch eine eigene Klasse modelliert.
+		Diese Gruppen von \texttt{RadioButtons} wird durch eine eigene Klasse \ref{uml-radiogroup} modelliert.
 		Beim Hinzufügen eines \texttt{RadioButton} in die Gruppe registriert sie die \texttt{buttonEventHandler} Methode als \texttt{Listener} im Button.
 		Sobald ein \texttt{RadioButton} ein Event auslöst, setzt diese Methode den Zustand aller anderen Buttons auf \texttt{false}.
 		
@@ -138,10 +139,10 @@
 					\input{../Images/UMLDiagrams/Slider.tikz}
 				\end{tikzpicture}
 			}
+			\caption{Klassendiagramm Slider}
 			\label{uml-slider}
-			%\caption{Slider UML}
 		\end{wrapfigure}
-		Ein \texttt{Slider} ermöglicht das Auswählen eines Fließkommawertes.
+		Ein \texttt{Slider} \ref{uml-slider} ermöglicht das Auswählen eines Fließkommawertes.
 		Das Attribut \texttt{position} speichert die relative Position des \texttt{Sliders} von 0 bis 1.
 		Erhält der \texttt{Slider} ein \texttt{TouchEvent}, wird die neue Position bestimmt.
 		Die Methode \texttt{setPosition} berechnet den Abstand der Berührung vom Anfang des Bewegungsraumes des \texttt{Sliders}
