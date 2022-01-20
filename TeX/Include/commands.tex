@@ -2,7 +2,7 @@
 \newcommand{\link}[2]{\href{#1}{\linkstyle{#2}}}
 \newcommand{\secref}[2]{\hyperref[sec:#1]{\linkstyle{\texttt{#2}}}}
 
-\newcommand{\figcite}[2][\itshape\footnotesize]{\vspace*{-2ex}\caption*{#1 nach \cite{#2}}\vspace*{-2ex}}
+\newcommand{\figcite}[2][]{\vspace*{-2ex}\caption*{\itshape\footnotesize nach \cite[#1]{#2}}\vspace*{-2ex}}
 
 \newcommand{\setupbytefield}{%
 	\newcommand{\bitformat}{\color{gray}\small}
