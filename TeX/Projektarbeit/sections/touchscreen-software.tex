@@ -5,7 +5,7 @@
 	Kern des Systems ist eine Abstraktion des Touchscreens auf dem Daughterboard.
 	
 	\subsubsection{Die Klasse TouchScreen}\label{sec:touchscreen_class}
-		\begin{wrapfigure}[14]{r}{0.4\textwidth}
+		\begin{wrapfigure}[14]{R}{0.4\textwidth}
 			\scalebox{0.75}{
 				\begin{tikzpicture}
 					\input{../Images/UMLDiagrams/TouchScreen.tikz}
@@ -51,7 +51,7 @@
 		Diese sind aber komponentenspezifisch und deswegen nicht in der Klasse \texttt{Component} implementiert.
 		
 		\medskip
-		\begin{wrapfigure}[10]{r}{0.4\textwidth}
+		\begin{wrapfigure}[10]{R}{0.4\textwidth}
 			\scalebox{0.75}{
 				\begin{tikzpicture}
 					\begin{abstractclass}{Component}{0, 0}
@@ -71,7 +71,7 @@
 		Da ein \texttt{Container} von \texttt{Component} erbt, ergibt sich eine Hierarchie der Komponenten. Ziel dessen ist es, das Interface möglichst modular gestalten zu können.
 		
 		\medskip
-		\begin{wrapfigure}{r}{0.4\textwidth}
+		\begin{wrapfigure}{R}{0.4\textwidth}
 			\scalebox{0.75}{
 				\begin{tikzpicture}
 					\begin{abstractclass}{Component}{-3, 0}
@@ -93,7 +93,7 @@
 		Ändert sich der Zustand, dann enthält das korrespondierende \texttt{ActionEvent} den neuen Zustand und wird an alle registrierten \texttt{Listener} übergeben.
 		
 		\medskip
-		\begin{wrapfigure}{r}{0.4\textwidth}
+		\begin{wrapfigure}{R}{0.4\textwidth}
 			\scalebox{0.75}{
 				\begin{tikzpicture}
 					\begin{abstractclass}{Component}{-3, 0}
@@ -107,14 +107,14 @@
 			\caption{Klassendiagramm RadioButton}
 			\label{uml-radiobutton}
 		\end{wrapfigure}
-		Wie ein \texttt{ToggleSwitch} dient ein \texttt{RadioButton} \ref{uml-radiobutton} zum Setzen einer Ein/Aus-Einstellung.
+		Wie ein \texttt{ToggleSwitch} dient ein \texttt{RadioButton} (\ref{uml-radiobutton}) zum Setzen einer Ein/Aus-Einstellung.
 		Im Gegensatz zu einem \texttt{ToggleSwitch} kommuniziert ein \texttt{RadioButton} sich gegenseitig ausschließende Optionen.
 		Die beiden Klassen ähneln sich daher stark. Der einzige Unterschied liegt darin, dass es möglich ist, das Abwählen eines
 		\texttt{RadioButtons} im Konstruktor zu deaktivieren. Ein \texttt{RadioButton} kann dann nur abgewählt werden,
 		indem ein anderer Button der selben Gruppe (also eine andere Option) ausgewählt wird.
 		
 		\medskip
-		\begin{wrapfigure}{r}{0.4\textwidth}
+		\begin{wrapfigure}{R}{0.4\textwidth}
 			\scalebox{0.75}{
 				\begin{tikzpicture}
 					\input{../Images/UMLDiagrams/RadioButtonGroup.tikz}
@@ -123,12 +123,12 @@
 			\label{uml-radiogroup}
 			\caption{Klassendiagramm RadioButtonGroup}
 		\end{wrapfigure}
-		Diese Gruppen von \texttt{RadioButtons} wird durch eine eigene Klasse \ref{uml-radiogroup} modelliert.
+		Diese Gruppen von \texttt{RadioButtons} wird durch eine eigene Klasse (\ref{uml-radiogroup}) modelliert.
 		Beim Hinzufügen eines \texttt{RadioButton} in die Gruppe registriert sie die \texttt{buttonEventHandler} Methode als \texttt{Listener} im Button.
 		Sobald ein \texttt{RadioButton} ein Event auslöst, setzt diese Methode den Zustand aller anderen Buttons auf \texttt{false}.
 		
 		\medskip
-		\begin{wrapfigure}{r}{0.4\textwidth}
+		\begin{wrapfigure}[11]{R}{0.4\textwidth}
 			\scalebox{0.75}{
 				\begin{tikzpicture}
 					\begin{abstractclass}[text width=3cm]{Component}{-4, 0}
