@@ -1,60 +1,41 @@
-\begin{figure}
-	\newcommand{\bitformat}{\color{gray}\small}
-	\newcommand{\boxformat}[1]{%
-		\centering\small%
-		\let\boxwidth=\width%
-		\raisebox{0pt}[\heightof{X}][0pt]{#1}%
-	}
-	\newcommand{\bitboxempty}[2][lr]{\bitbox[#1]{#2}{}}
-	\newcommand{\wordboxempty}[2][lr]{\wordbox[#1]{#2}{}}
-	\newenvironment{addressrow}[1]{%
-		\begin{leftwordgroup}{%
-				\bitformat%
-				\makebox[\widthof{0xmm}][l]{#1}%
-			}%
-		}{%
-		\end{leftwordgroup}%
-	}
-	\newcommand{\resizetext}[1]{\resizebox{\boxwidth}{!}{~#1~}}
-	
-	\begin{bytefield}[bitwidth=.115\textwidth,
-		bitformatting=\bitformat,
-		boxformatting=\boxformat,
-		leftcurly=.,
-		leftcurlyspace=0pt]{8}
-		\bitheader{0-7}\\
-		\begin{addressrow}{0x00}
-			\bitbox{1}{MODE} & \bitbox{1}{GEST\_ID} & \bitbox{1}{STATUS} & \bitbox{2}{P1\_X} & \bitbox{2}{P1\_Y} & \bitbox{1}{\resizetext{P1\_WEIGHT}}
-		\end{addressrow}\\
-		\begin{addressrow}{0x08}
-			\bitbox{1}{\resizetext{P1\_AREA}} & \bitbox{2}{P2\_X} & \bitbox{2}{P2\_Y} & \bitbox{1}{\resizetext{P2\_WEIGHT}}  & \bitbox{1}{\resizetext{P2\_AREA}} & \bitboxempty{1}
-		\end{addressrow}\\
-		\begin{addressrow}{\hspace{\widthof{0x}}\vdots}
-			\wordboxempty{2}
-		\end{addressrow}\\
-		\begin{addressrow}{0x80}
-			\bitbox{1}{\resizetext{TH\_GRP}} & \bitboxempty{4} & \bitbox{1}{\resizetext{TH\_DIFF}} & \bitbox{1}{CTRL} & \bitbox{1}{TIMEENTERMONITOR}
-		\end{addressrow}\\
-		\begin{addressrow}{0x88}
-			\bitbox{1}{PERIODACTIVE} & \bitbox{1}{PERIODMONITOR} & \bitboxempty{6}
-		\end{addressrow}\\
-		\begin{addressrow}{0x90}
-			\bitboxempty{1} & \bitbox{1}{\resizetext{RAD\_VAL}} & \bitbox{1}{OFF\_LR} & \bitbox{1}{OFF\_UD} & \bitbox{1}{\resizetext{DIST\_LR}} & \bitbox{1}{\resizetext{DIST\_UD}} & \bitbox{1}{\resizetext{DIST\_ZOOM}} & \bitboxempty{1}
-		\end{addressrow}\\
-		\begin{addressrow}{0x98}
-			\wordboxempty{1}
-		\end{addressrow}\\
-		\begin{addressrow}{0xA0}
-			\bitboxempty{1} & \bitbox{2}{LIB\_VER} & \bitbox{1}{CIPHER} & \bitbox{1}{\resizetext{IT\_MODE}} & \bitbox{1}{\resizetext{PWR\_MODE}} & \bitbox{1}{FIRM\_ID} & \bitboxempty{1}
-		\end{addressrow}\\
-		\begin{addressrow}{0xA8}
-			\bitbox{1}{CHIP\_ID} & \bitboxempty{6} & \bitbox{1}{RLEASE\_CODE\_ID}
-		\end{addressrow}\\
-		\begin{addressrow}{0xB0}
-			\wordboxempty{1}
-		\end{addressrow}\\
-		\begin{addressrow}{0xB8}
-			\bitboxempty[lrb]{4} & \bitbox{1}{STATE} & \bitboxempty[lrb]{3}
-		\end{addressrow}\\
-	\end{bytefield}
-\end{figure}
+\setupbytefield
+\begin{bytefield}[bitwidth=.115\textwidth,
+	bitformatting=\bitformat,
+	boxformatting=\boxformat,
+	leftcurly=.,
+	leftcurlyspace=0pt]{8}
+	\bitheader{0-7}\\
+	\begin{addressrow}{0x00}
+		\bitbox{1}{MODE} & \bitbox{1}{GEST\_ID} & \bitbox{1}{STATUS} & \bitbox{2}{P1\_X} & \bitbox{2}{P1\_Y} & \bitbox{1}{\resizetext{P1\_WEIGHT}}
+	\end{addressrow}\\
+	\begin{addressrow}{0x08}
+		\bitbox{1}{\resizetext{P1\_AREA}} & \bitbox{2}{P2\_X} & \bitbox{2}{P2\_Y} & \bitbox{1}{\resizetext{P2\_WEIGHT}}  & \bitbox{1}{\resizetext{P2\_AREA}} & \bitboxempty{1}
+	\end{addressrow}\\
+	\begin{addressrow}{\hspace{\widthof{0x}}\vdots}
+		\wordboxempty{2}
+	\end{addressrow}\\
+	\begin{addressrow}{0x80}
+		\bitbox{1}{\resizetext{TH\_GRP}} & \bitboxempty{4} & \bitbox{1}{\resizetext{TH\_DIFF}} & \bitbox{1}{CTRL} & \bitbox{1}{TIMEENTERMONITOR}
+	\end{addressrow}\\
+	\begin{addressrow}{0x88}
+		\bitbox{1}{PERIODACTIVE} & \bitbox{1}{PERIODMONITOR} & \bitboxempty{6}
+	\end{addressrow}\\
+	\begin{addressrow}{0x90}
+		\bitboxempty{1} & \bitbox{1}{\resizetext{RAD\_VAL}} & \bitbox{1}{OFF\_LR} & \bitbox{1}{OFF\_UD} & \bitbox{1}{\resizetext{DIST\_LR}} & \bitbox{1}{\resizetext{DIST\_UD}} & \bitbox{1}{\resizetext{DIST\_ZOOM}} & \bitboxempty{1}
+	\end{addressrow}\\
+	\begin{addressrow}{0x98}
+		\wordboxempty{1}
+	\end{addressrow}\\
+	\begin{addressrow}{0xA0}
+		\bitboxempty{1} & \bitbox{2}{LIB\_VER} & \bitbox{1}{CIPHER} & \bitbox{1}{\resizetext{IT\_MODE}} & \bitbox{1}{\resizetext{PWR\_MODE}} & \bitbox{1}{FIRM\_ID} & \bitboxempty{1}
+	\end{addressrow}\\
+	\begin{addressrow}{0xA8}
+		\bitbox{1}{CHIP\_ID} & \bitboxempty{6} & \bitbox{1}{RLEASE\_CODE\_ID}
+	\end{addressrow}\\
+	\begin{addressrow}{0xB0}
+		\wordboxempty{1}
+	\end{addressrow}\\
+	\begin{addressrow}{0xB8}
+		\bitboxempty[lrb]{4} & \bitbox{1}{STATE} & \bitboxempty[lrb]{3}
+	\end{addressrow}\\
+\end{bytefield}

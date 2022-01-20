@@ -4,6 +4,26 @@
 
 \newcommand{\figcite}[2][\itshape\footnotesize]{\vspace*{-2ex}\caption*{#1 nach \cite{#2}}\vspace*{-2ex}}
 
+\newcommand{\setupbytefield}{%
+	\newcommand{\bitformat}{\color{gray}\small}
+	\newcommand{\boxformat}[1]{%
+		\centering\small%
+		\let\boxwidth=\width%
+		\raisebox{0pt}[\heightof{X}][0pt]{##1}%
+	}
+	\newcommand{\bitboxempty}[2][lr]{\bitbox[##1]{##2}{}}
+	\newcommand{\wordboxempty}[2][lr]{\wordbox[##1]{##2}{}}
+	\newenvironment{addressrow}[1]{%
+		\begin{leftwordgroup}{%
+				\bitformat%
+				\makebox[\widthof{0xmm}][l]{##1}%
+			}%
+		}{%
+		\end{leftwordgroup}%
+	}
+	\newcommand{\resizetext}[1]{\resizebox{\boxwidth}{!}{~##1~}}
+}
+
 \newcommand{\textoverline}[1]{$\overline{\mbox{#1}}$}
 
 \newcommandx{\abbrev}[5][1=,3=\bfseries,5=]{{#1#2}\footnote{{#3#2} {#5#4}}}
