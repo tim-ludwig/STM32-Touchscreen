@@ -19,6 +19,7 @@ Wenn einer dieser Streifen mit \texttt{ground} verbunden wurde, können Streifen
 Um alle Berührungspositionen zu ermitteln, werden nun die Maskenstreifen linear sequentiell mit der \textit{active backplane} verbunden, sodass alle außer einem Streifen mit \texttt{ground} verbunden sind.
 Durch dieses Verfahren ist für jedes Abfrageintervall eine Achse fest und die andere durch den Nutzer beeinflussbar.
 Die veränderte Kapazität an der Position der Berührung gibt Aufschluss darüber, wie weit entfernt diese Berührung von einem Sensorstreifen liegt.
+Somit können auch Berührungen zwischen zwei Sensorstreifen erkannt werden.
 \cite{ts-self_capacitive_multitouch}
 
 Sogenannte \textit{"ghost touches"} können entstehen, wenn statt der beschriebenen Vorgehensweise alle Maskenstreifen mit der \textit{active backplane} verbunden sind und somit die gesamte Länge der Sensorstreifen Berührungen erkennen kann.
@@ -34,7 +35,7 @@ Eine kleine tabellarische Darstellung der im Code abgefragten oder gesetzten Adr
 \begin{figure}[h!]
 	\centering
 	\input{../Images/I2C_Touchscreen_AddressTable.tikz}
-	
+	%
 	\caption{Touchscreen Adresstabelle (verwendete Adressen)}
 	\figcite{stm32-ts}
 	\label{ts-address_table}

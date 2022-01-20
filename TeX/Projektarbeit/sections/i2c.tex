@@ -21,7 +21,7 @@ Trotz der Möglichkeit mehrere \texttt{Controller} an den Bus anzuschließen und
 \begin{wrapfigure}{r}{.45\textwidth}
 	\centering
 	\scalebox{1.25}{\input{../Images/I2C_Communication_START.tikz}}
-	
+	%
 	\caption{Kommunikationsaufbau}
 	\figcite[Fig.~6]{I2C-spec_userManual}
 	\label{i2c-start}
@@ -34,7 +34,7 @@ Um ein solches Signal erzeugen zu können, gibt der Sender die Datenleitung frei
 \begin{wrapfigure}{r}{.45\textwidth}
 	\centering
 	\scalebox{1.25}{\input{../Images/I2C_Communication_DATA.tikz}}
-	
+	%
 	\caption{Datenübertragung}
 	\figcite[Fig.~6]{I2C-spec_userManual}
 	\label{i2c-data}
@@ -43,11 +43,11 @@ Wenn der \texttt{Controller} Daten anfordern möchte, wird dieser nach dem \text
 Sobald der Kommunikationsaufbau bestätigt wurde, fängt der Sender mit dem nächsten Taktzyklus an die einzelnen Bytes über den Bus zu versenden.
 Hierbei wird vom Empfänger nach jedem Byte eine Empfangsbestätigung erzeugt.
 
-\begin{wrapfigure}{r}{.45\textwidth}
+\begin{wrapfigure}[5]{r}{.45\textwidth}
 	\centering
 	\scalebox{1.25}{\input{../Images/I2C_Communication_STOP.tikz}}
 	\scalebox{1.25}{\input{../Images/I2C_Communication_repSTART.tikz}}
-	
+	%
 	\caption{Kommunikationsende}
 	\figcite[Fig.~6]{I2C-spec_userManual}
 	\label{i2c-stop}
