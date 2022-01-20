@@ -14,7 +14,7 @@
 			\caption{Klassendiagramm TouchScreen}
 			\label{uml-touchscreen}
 		\end{wrapfigure}
-		Diese Klasse \ref{uml-touchscreen} bietet verschiedene Methoden, welche die Kommunikation mit dem Daughterboard umsetzen und ist als \emph{Singelton} entworfen.
+		Diese Klasse (\ref{uml-touchscreen}) bietet verschiedene Methoden, welche die Kommunikation mit dem Daughterboard umsetzen und ist als \emph{Singelton} entworfen.
 		Die statische Variable \texttt{INSTANCE} speichert die (einzige) Instanz dieser Klasse, um ihren \texttt{InterruptHandler} aus \texttt{linkage "C"} aufrufen zu können.
 		
 		Um das System nicht unnötig auszulasten, ist die Instanz in der Lage, einen GPIO-Interrupt zu behandeln.
@@ -42,7 +42,7 @@
 			\caption{Klassendiagramm Component}
 			\label{uml-component}
 		\end{wrapfigure}
-		Alle Komponenten haben die gemeinsame Oberklasse \texttt{Component} \ref{uml-component}, welche drei Aspekte der Komponenten modelliert. Erstens: die \texttt{BoundingBox}, ein achsparalleles Rechteck, welches die Komponente vollständig enthält.
+		Alle Komponenten haben die gemeinsame Oberklasse \texttt{Component} (\ref{uml-component}), welche drei Aspekte der Komponenten modelliert. Erstens: die \texttt{BoundingBox}, ein achsparalleles Rechteck, welches die Komponente vollständig enthält.
 		Eine Komponente erhält Touchscreen-Events nur, wenn diese in ihrer \texttt{BoundingBox} liegen.
 		Zweitens: drei Methoden, welche Touchscreen-Events annehmen und verarbeiten.
 		Drittens: eine Methode, welche die Komponente auf ein Display zeichnen kann.
@@ -63,7 +63,7 @@
 			\caption{Klassendiagramm Container}
 			\label{uml-container}
 		\end{wrapfigure}
-		Ein \texttt{Container} \ref{uml-container} dient nur dazu, mehrere Komponenten in einer Gruppe zusammenzufassen.
+		Ein \texttt{Container} (\ref{uml-container}) dient nur dazu, mehrere Komponenten in einer Gruppe zusammenzufassen.
 		Bestände die Möglichkeit, eine Komponente zu \emph{deaktivieren}, wäre es Aufgabe dieser Klasse diese Operation an ihre Komponenten weiterzugeben.
 		Beispielsweise könnte eine Gruppe von \texttt{RadioButtons} -- in einem Container zusammengefasst -- durch nur einen Aufruf deaktiviert werden.
 		Dieses Feature ist aber nicht implementiert, demnach ist der \texttt{Container} nur eine logische Einheit.
@@ -85,7 +85,7 @@
 			\caption{Klassendiagramm ToggleSwitch}
 			\label{uml-toggleswitch}
 		\end{wrapfigure}
-		Ein \texttt{ToggleSwitch} \ref{uml-toggleswitch} dient zum Setzen einer Ein/Aus-Einstellung.
+		Ein \texttt{ToggleSwitch} (\ref{uml-toggleswitch}) dient zum Setzen einer Ein/Aus-Einstellung.
 		Dementsprechend speichert die Klasse \texttt{ToggleSwitch} den aktuellen Zustand des Schalters in einem \texttt{bool}.
 		Erhält ein \texttt{ToggleSwitch} ein \texttt{TouchEvent} wechselt er den Zustand.
 		Außerdem erzeugt er ein \texttt{ToggleSwitchEvent} (eine Subklasse von \texttt{ActionEvent}).
@@ -142,7 +142,7 @@
 			\caption{Klassendiagramm Slider}
 			\label{uml-slider}
 		\end{wrapfigure}
-		Ein \texttt{Slider} \ref{uml-slider} ermöglicht das Auswählen eines Fließkommawertes.
+		Ein \texttt{Slider} (\ref{uml-slider}) ermöglicht das Auswählen eines Fließkommawertes.
 		Das Attribut \texttt{position} speichert die relative Position des \texttt{Sliders} von 0 bis 1.
 		Erhält der \texttt{Slider} ein \texttt{TouchEvent}, wird die neue Position bestimmt.
 		Die Methode \texttt{setPosition} berechnet den Abstand der Berührung vom Anfang des Bewegungsraumes des \texttt{Sliders}
