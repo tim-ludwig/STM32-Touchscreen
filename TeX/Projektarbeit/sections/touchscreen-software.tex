@@ -1,8 +1,8 @@
 \subsection{Aufbau des Touchscreen GUI's}
 	Nun also zur Software. 
 	Das System ist als Event gesteuertes UI in seinen Grundzügen stark \texttt{Java Swing} angelehnt.
-	Die Implementierten Komponenten sind typische Kontrollen eines Touch GUI.
-	Kern des Systems ist eine Abstraktion des Touchscreens auf dem Daughterboard:
+	Die implementierten Komponenten sind typische Kontrollen eines Touch GUI.
+	Kern des Systems ist eine Abstraktion des Touchscreens auf dem Daughterboard.
 	
 	\subsubsection{Die Klasse TouchScreen}\label{sec:touchscreen_class}
 		\begin{wrapfigure}{r}{0.4\textwidth}
@@ -15,7 +15,7 @@
 		Diese Klasse bietet verschiedene Methoden, welche die Kommunikation mit dem Daughterboard umsetzen und ist als \emph{Singelton} entworfen.
 		Die statische Variable \texttt{INSTANCE} speichert die (einzige) Instanz dieser Klasse, um ihren \texttt{interruptHanlder} aus \texttt{linkage "C"} aufrufen zu können.
 		
-		Um das System nicht unnötig aus zu lasten, ist die Instanz in der Lage, einen GPIO-Interrupt zu behandeln.
+		Um das System nicht unnötig auszulasten, ist die Instanz in der Lage, einen GPIO-Interrupt zu behandeln.
 		Das Daughterboard ist in der Lage eine erkannte Berührung durch das auf \texttt{LOW} ziehen der \texttt{INT} Leitung zu signalisieren \cite[8\psq]{ts-userManual}.
 		Diese Leitung ist über den Stecker \texttt{CN1} auf Pin 4 mit dem Motherboard verbunden. Dieser entspricht dem Pin \texttt{PI13} des $\mu C$ \cite[27\psq]{disco-userManual}.
 		
@@ -26,9 +26,9 @@
 		Der entsprechende Interrupt muss im \texttt{SYSCFG} Register freigeschaltet werden, dies passiert anhand seiner \texttt{IRQNumber}.
 		
 		Sobald eine Berührung erkannt wird, wird der entsprechende \texttt{IRQHandler} aufgerufen.
-		Dieser ruft den InterruptHandler der Instanz der TouchScreen Klasse auf.
-		Diese fragt durch \texttt{refresh()} die aktuellen Daten über den I²C-Bus vom Daughterboard ab und erzeugt ein entsprechendes \secref{EventSystem}{Event}.
-		Dieses Event wird an den \texttt{RootContainer} übergeben, welcher es an seine Komponenten weitergibt.
+		Dieser ruft nun den \texttt{InterruptHandler} der Instanz der \texttt{TouchScreen} Klasse auf.
+		Diese fragt dann durch \texttt{refresh()} die aktuellen Daten über den I²C-Bus vom Daughterboard ab und erzeugt ein entsprechendes \secref{EventSystem}{Event}.
+		Dieses Event wird schließlich an den \texttt{RootContainer} übergeben, welcher es an seine Komponenten weitergibt.
 	
 	\subsubsection{Komponenten und Container}\label{sec:components}
 		\begin{wrapfigure}{r}{0.4\textwidth}
@@ -152,7 +152,7 @@
 		Ein \texttt{Event} beschreibt eine Berührung oder eine Interaktion des Nutzers mit einem Objekt.
 		\texttt{Events} sind aufgeteilt in \texttt{TouchScreenEvents} und \texttt{ActionEvents}.
 
-		\texttt{TouchScreenEvents} werden vom TouchScreen in dessen \texttt{Interrupt Handler} generiert und stellen eine einzelne Berührung oder Bewegung dar.
+		\texttt{TouchScreenEvents} werden vom TouchScreen in dessen \texttt{InterruptHandler} generiert und stellen eine einzelne Berührung oder Bewegung dar.
 		Sie werden von den in der Hierarchie des Systems eingebetteten Komponenten durch die in \texttt{Component} deklarierten Methoden behandelt
 		und bei Bedarf in \texttt{ActionEvents} übersetzt.
 		Diese Art Event dient nicht der Umsetzung von Anwendungslogik, sondern ausschließlich der Übertragung von Berührungsdaten an die Komponenten.
