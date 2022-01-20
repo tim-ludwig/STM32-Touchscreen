@@ -1,6 +1,6 @@
 \subsection{Touchscreen}
 
-Der verwendete Touchscreen ist ein projiziert-kapazitiver Touchscreen, welcher mit einer Eigenkapazität arbeitet. \cite{ts-userManual}
+Der verwendete Touchscreen ist ein projiziert-kapazitiver Touchscreen, welcher mit einer Eigenkapazität arbeitet. \cite[\itshape4.4~Touch~panel]{ts-userManual}
 
 Neben den projiziert-kapazitiven Touchscreens existieren auch noch Oberflächen-kapazitive Touchscreens, welche leicht anders funktionieren.
 %Bei beiden Varianten wird eine Berührung durch Änderung von Kapazitäten im Touchscreen erkannt.
@@ -10,10 +10,32 @@ An allen vier Ecken wird eine kleine Wechselspannung angelegt, welche ein schwac
 Wenn nun ein leitfähiges Material die Oberfläche berührt, wird dies ge- und entladen.
 Durch das Messen des Stroms durch die Ecken kann nun herausgefunden werden, wie weit die Berührung von einer bestimmten Ecke entfernt ist.
 Durch Kombination der vier Entfernungen zu den vier Ecken kann die Position der Berührung ermittelt werden.
-\cite{ts-holzinger}
+\cite[\itshape8~Findings~and~Discussion]{ts-holzinger}
 
 Bei projiziert-kapazitiven Touchscreens hingegen wird ein Raster aus leitfähigen Streifen verwendet, welches unter der Glasscheibe liegt.
 Hierbei dient eine Ebene des Rasters als Sensorebene und die andere Ebene als Maskenebene.
 Die Streifen der Maskenebene können entweder mit \texttt{ground} oder mit der \textit{active backplane} verbunden werden.
-Wenn einer dieser Streifen mit \texttt{ground} verbunden wurde, können Streifen der Sensorebene auf jener Höhe keinen Berührung erkennen.
+Wenn einer dieser Streifen mit \texttt{ground} verbunden wurde, können Streifen der Sensorebene auf der Höhe des Maskenstreifens keine Berührung erkennen.
+Um alle Berührungspositionen zu ermitteln, werden nun die Maskenstreifen linear sequentiell mit der \textit{active backplane} verbunden, sodass alle außer einem Streifen mit \texttt{ground} verbunden sind.
+Durch dieses Verfahren ist für jedes Abfrageintervall eine Achse fest und die andere durch den Nutzer beeinflussbar.
+Die veränderte Kapazität an der Position der Berührung gibt Aufschluss darüber, wie weit entfernt diese Berührung von einem Sensorstreifen liegt.
 \cite{ts-self_capacitive_multitouch}
+
+Sogenannte \textit{"ghost touches"} können entstehen, wenn statt der beschriebenen Vorgehensweise alle Maskenstreifen mit der \textit{active backplane} verbunden sind und somit die gesamte Länge der Sensorstreifen Berührungen erkennen kann.
+Bei einer Abfrage mit zwei Berührungspunkten ergeben sich zwei mögliche Ermittlungsergebnisse.
+Das eine Ergebnis besteht aus den eigentlichen Berührungspositionen $(x_0,y_0)$ und $(x_1,y_1)$.
+Das andere besteht aus den falsch ermittelten Positionen $(x_0,y_1)$ und $(x_1,y_0)$.
+
+Der verwendete Touchscreen kann mit dem Mikrocontroller über einen I²C-Bus kommunizieren und somit alle notwendigen Daten an diesen übermitteln.
+Zudem können verschiedene Einstellungen gemacht werden.
+Diese Daten finden sich an spezifizierten Adressen des Daughterboards.
+Eine kleine tabellarische Darstellung der im Code abgefragten oder gesetzten Adressen und deren Bedeutung:
+\medskip
+\begin{figure}[h!]
+	\centering
+	\input{../Images/I2C_Touchscreen_AddressTable.tikz}
+	
+	\caption{Touchscreen Adresstabelle (verwendete Adressen)}
+	\figcite{stm32-ts}
+	\label{ts-address_table}
+\end{figure}
